@@ -1,8 +1,14 @@
+import { Box } from "@mui/material";
 import HomePage from "../../components/organisms/HomePage";
 
-export default function Home() {
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css"; // Prevents a flash of unstyled icons
+
+config.autoAddCss = false; 
+
+export default function Page() {
   return (
-    <div >
+    <Box sx={{padding: '32px 16px', background: '#f9fbff'}} >
       <main >
         <HomePage />
       </main>
@@ -50,6 +56,6 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer> */}
-    </div>
+    </Box>
   );
 }

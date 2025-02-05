@@ -24,6 +24,7 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: poppins.style.fontFamily,
+    // color: '#141416',
   },
 });
 

@@ -1,10 +1,28 @@
 import { Button } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSliders } from "@fortawesome/free-solid-svg-icons";
 
-const FilterButton = () => {
+interface FilterButtonProps {
+    open: boolean,
+    setOpen: (open : boolean) => void,
+}
+
+const FilterButton = ({open, setOpen} : FilterButtonProps) => {
     return (
         <>
-            <Button variant={'outlined'} endIcon={<SearchIcon />}>Filters</Button>
+            <Button 
+                variant={'outlined'} 
+                onClick={() => setOpen(!open)}
+                sx={{color: 'black', fontSize: '14px', textTransform: 'capitalize', border: `1px solid ${open ? 'blue' : '#E4ECF2'}`, borderRadius: '8px'}}
+                endIcon={
+                    <FontAwesomeIcon 
+                        icon={faSliders} 
+                        size="2x" 
+                        color="#00C2A6" 
+                    />
+                }>
+                    Filters
+            </Button>
         </>
     )
 };

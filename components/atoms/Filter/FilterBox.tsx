@@ -7,7 +7,7 @@ interface FilterBoxProps {
 
 const FilterBox = ({open} : FilterBoxProps) => {
     return (
-        <Stack spacing={1} sx={{ display: open ? 'none' : 'block', maxWidth: '250px', border: '2px solid grey', borderRadius: '8px', padding: 2, boxShadow: '2px 2px 4px black'}}>
+        <Stack spacing={1} sx={{ display: open ? 'block' : 'none', maxWidth: '250px', border: '2px solid grey', borderRadius: '8px', padding: 2, boxShadow: '2px 2px 4px black'}}>
             <Typography>RPF Status</Typography>
             <FormGroup>
                 <FormControlLabel control={<Checkbox />} label="Active" />

@@ -1,5 +1,5 @@
 'use client'
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import Title from "../atoms/Title"
 import SearchInput from "../atoms/SearchInput";
 import FilterButton from "../atoms/Filter/FilterButton";
@@ -7,19 +7,18 @@ import { useState } from "react";
 import FilterBox from "../atoms/Filter/FilterBox";
 
 const Header = () => {
-    const [openFilters, setOpenFilters] = useState<boolean>(false)
+    const [openFilters, setOpenFilters] = useState<boolean>(true)
     return (
-        <Box mt={2} ml={4}>
+        <Stack mt={2} ml={4} spacing={4}>
             <Title /> 
-            <Box display={'flex'} gap={2}>
+            <Box display={'flex'} sx={{position: 'relative'}} gap={2}>
                 <SearchInput />
-                <FilterButton />
-                <FilterBox open={openFilters} />
-
+                <FilterButton setOpen={() => setOpenFilters(!openFilters)}  open={openFilters} />
             </Box>
+            <FilterBox open={openFilters} />
 
 
-        </Box>
+        </Stack>
     )
 };
 
