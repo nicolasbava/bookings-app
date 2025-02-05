@@ -13,9 +13,13 @@ const CheckboxStyled = ({label, ...props}: CheckboxStyledProps) => {
                     fontSize: '14px', // Customize label font size
                     fontWeight: '600    ', // Customize label font weight
                 },
-                
             }}
-            control={<Checkbox size={'small'} {...props} />} label={label} />
+            control={<Checkbox  sx={{
+                color: 'grey',
+                '&.Mui-checked': {
+                  color: '#00C2A6',
+                },
+              }} color={'secondary'} size={'small'} {...props} />} label={label} />
     )
 };
 

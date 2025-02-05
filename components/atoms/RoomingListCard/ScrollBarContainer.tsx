@@ -85,6 +85,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
         flexDirection: 'column',
         width: '100%',
         position: 'relative',
+        marginBottom: '64px'
       }}
     >
       {/* Scrollable Content */}
@@ -104,26 +105,27 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
       {/* Custom Scrollbar Track */}
       <Box
         sx={{
-          height: '8px',
-          backgroundColor: '#f1f1f1',
+          height: '4px',
+          backgroundColor: '#CDD4E5',
           borderRadius: '4px',
           position: 'relative',
-          marginTop: '10px',
+          marginTop: '24px',
         }}
       >
         {/* Custom Scrollbar Thumb */}
         <Box
           ref={thumbRef}
           sx={{
-            height: '8px',
-            backgroundColor: '#888',
+            height: '16px',
+            backgroundColor: '#CDD4E5',
             borderRadius: '4px',
             position: 'absolute',
             transition: 'background-color 0.2s',
             width: `${scrollbarWidth}px`,
             left: `${scrollbarLeft}px`,
             cursor: 'grab',
-            '&:hover': { backgroundColor: '#555' },
+            marginTop: '-5px',
+            '&:hover': { backgroundColor: '#CDD4W3' },
             '&:active': { cursor: 'grabbing' },
           }}
           onMouseDown={handleThumbMouseDown}
