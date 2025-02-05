@@ -9,7 +9,7 @@ interface FilterBoxProps {
 
 const FilterBox = ({ open }: FilterBoxProps) => {
     return (
-        <Stack sx={{ display: open ? 'block' : 'none', border: 'none', borderRadius: '8px', padding: 2, boxShadow: '0px 0px 8px #0000003d', maxWidth: '184px' }}>
+        <Stack sx={{ display: open ? 'block' : 'none', border: 'none', borderRadius: '8px', padding: 2, boxShadow: '0px 0px 8px #0000003d', maxWidth: '184px', background: 'white' }}>
             <Typography sx={{ color: theme.palette.grey[300], fontSize: '12px' }}>RPF STATUS</Typography>
             <FormGroup>
                 <CheckboxStyled label='Active' />

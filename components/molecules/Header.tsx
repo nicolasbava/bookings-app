@@ -12,11 +12,13 @@ const Header = () => {
     return (
         <Stack mt={2} spacing={4}>
             <Title /> 
-            <Box display={'flex'} sx={{position: 'relative'}} gap={2}>
+            <Box display={'flex'}  gap={2}>
                 <SearchInput />
-                <FilterButton setOpen={() => setOpenFilters(!openFilters)}  open={openFilters} />
+                <Box sx={{position: 'relative'}}>
+                    <FilterButton setOpen={() => setOpenFilters(!openFilters)}  open={openFilters} />
+                    <FilterBox open={openFilters} />
+                </Box>
             </Box>
-            <FilterBox open={openFilters} />
 
 
         </Stack>
