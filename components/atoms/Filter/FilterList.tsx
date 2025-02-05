@@ -3,13 +3,13 @@ import { Button, FormGroup, Stack, Typography } from "@mui/material";
 import React from "react";
 import CheckboxStyled from "./CheckboxStyled";
 
-interface FilterBoxProps {
+interface FilterListProps {
     open: boolean
 }
 
-const FilterBox = ({ open }: FilterBoxProps) => {
+const FilterList = ({ open }: FilterListProps) => {
     return (
-        <Stack sx={{ display: open ? 'block' : 'none', border: 'none', borderRadius: '8px', padding: 2, boxShadow: '0px 0px 8px #0000003d', maxWidth: '184px', background: 'white' }}>
+        <Stack sx={{ position: 'absolute', zIndex: 99, minWidth: '184px', display: open ? 'block' : 'none', border: 'none', borderRadius: '8px', padding: 2, boxShadow: '0px 0px 8px #0000003d', maxWidth: '184px', background: 'white' }}>
             <Typography sx={{ color: theme.palette.grey[300], fontSize: '12px' }}>RPF STATUS</Typography>
             <FormGroup>
                 <CheckboxStyled label='Active' />
@@ -21,4 +21,4 @@ const FilterBox = ({ open }: FilterBoxProps) => {
     )
 };
 
-export default FilterBox;
+export default FilterList;

@@ -4,10 +4,10 @@ import Title from "../atoms/Title"
 import SearchInput from "../atoms/SearchInput";
 import FilterButton from "../atoms/Filter/FilterButton";
 import { useState } from "react";
-import FilterBox from "../atoms/Filter/FilterBox";
+import FilterBox from "../atoms/Filter/FilterList";
 
 const Header = () => {
-    const [openFilters, setOpenFilters] = useState<boolean>(true);
+    const [openFilters, setOpenFilters] = useState<boolean>(false);
     
     return (
         <Stack mt={2} spacing={4}>

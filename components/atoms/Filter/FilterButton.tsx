@@ -13,7 +13,16 @@ const FilterButton = ({open, setOpen} : FilterButtonProps) => {
             <Button 
                 variant={'outlined'} 
                 onClick={() => setOpen(!open)}
-                sx={{background: 'white', color: 'black', fontSize: '14px', textTransform: 'capitalize', border: `1px solid ${open ? 'blue' : '#E4ECF2'}`, borderRadius: '8px'}}
+                sx={{
+                    background: 'white', 
+                    color: 'black', 
+                    fontSize: '14px', 
+                    fontWeight: 500,
+                    textTransform: 'capitalize', 
+                    border: `1px solid ${open ? 'blue' : '#E4ECF2'}`, 
+                    borderRadius: '8px', 
+                    padding: '11px'
+                }}
                 endIcon={
                     <FontAwesomeIcon 
                         icon={faSliders} 

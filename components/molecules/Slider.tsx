@@ -12,11 +12,10 @@ const Slider = () => {
                     <TitleDivider title={ele.event} index={index} />
                     <CustomScrollbar>
                         <Stack direction={'row'} spacing={2} mt={2} >
-                                <RoomingListCard />
-                                <RoomingListCard />
-                                <RoomingListCard />
-                                <RoomingListCard />
-                                <RoomingListCard />
+                            {ele.lends.map((item,index) => (
+                                <RoomingListCard key={index} {...item} />
+                            ))}
+                                
                         </Stack>
                     </CustomScrollbar>
                 </Box>

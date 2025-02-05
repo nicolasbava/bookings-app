@@ -6,12 +6,21 @@ import DateRangeCard from "./DateRangeCard";
 import ButtonBlue from "../ButtonBlue";
 import OpenDocIcon from "./OpenDocIcon";
 
-const RoomingListCard = () => {
+interface RoomingListCardProps {
+    rpf_name: string,
+    id: string,
+    from_date: string,
+    to_date: string,
+    bookings: number,
+    agreement: string
+}
+
+const RoomingListCard = ({rpf_name, bookings, agreement} : RoomingListCardProps) => {
     return (
         <Grid2 columnSpacing={2} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px'}}>
             <Grid2 size={9}>
-                <TitleCard></TitleCard>
-                <SubtitleCard></SubtitleCard>
+                <TitleCard>{rpf_name}</TitleCard>
+                <SubtitleCard>{agreement}</SubtitleCard>
             </Grid2>
             <Grid2 size={3}>
                 <CalendarCard />
@@ -20,7 +29,7 @@ const RoomingListCard = () => {
                 <DateRangeCard />
             </Grid2>
             <Grid2 size={10} >
-                <ButtonBlue>View Bookings (12)</ButtonBlue>
+                <ButtonBlue>View Bookings ({JSON.stringify(bookings)})</ButtonBlue>
             </Grid2>
             <Grid2 size={2}>
                 <OpenDocIcon />

@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
-    weight: ["400", "600", "700"],
+    weight: ["400", "500", "600", "700"],
     subsets: ["latin"],
     display: "swap",
   });
@@ -25,17 +25,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: poppins.style.fontFamily,
-    // color: '#141416',
-  },
-//   components: {
-//     MuiButton: {
-//         styleOverrides: {
-//             root: {
-//                 background: 'blue'
 
-//             }
-//         }
-//     }}
+  },
+
 });
 
 export default theme;
