@@ -8,6 +8,11 @@ const SearchInput = () => {
             placeholder="Search" 
             variant="outlined" 
             size={'small'} 
+            sx={{
+                '.MuiOutlinedInput-root': {
+                    paddingLeft: '6px'
+                }
+            }}
             slotProps={{
                 input: {
                     startAdornment: (

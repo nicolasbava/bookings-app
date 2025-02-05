@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
-const Filters = () => {
+const FilterButton = () => {
     return (
         <>
             <Button variant={'outlined'} endIcon={<SearchIcon />}>Filters</Button>
@@ -9,4 +9,4 @@ const Filters = () => {
     )
 };
 
-export default Filters;
+export default FilterButton;
