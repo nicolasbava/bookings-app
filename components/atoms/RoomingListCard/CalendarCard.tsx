@@ -1,6 +1,14 @@
 import { Box, Stack, Typography } from "@mui/material";
+import { parseCutoffDate } from "../../../utils";
 
-const CalendarCard = () => {
+interface CalendarCard {
+    cutoff_date: string,
+    // day: string
+}
+
+const CalendarCard = ({cutoff_date} : CalendarCard) => {
+    const { day, month } = parseCutoffDate(cutoff_date);
+
     return (
         <Stack alignItems={'center'} >
         
@@ -14,7 +22,7 @@ const CalendarCard = () => {
                     textAlign: 'center',
                     paddingInline: '16px'
                 }}>
-                    JAN
+                    {month}
                 </Typography>
                 <Typography sx={{
                     fontSize: '26px', 
@@ -24,7 +32,7 @@ const CalendarCard = () => {
                     borderRadius: '0 0 8px 8px ',
                     textAlign: 'center'
                 }}>
-                    8
+                    {day}
                 </Typography>
             </Box>
             <Typography sx={{fontSize: '12px', color: '#777E90', mt: 1, fontWeight: 500}}>Cut-Off Date</Typography>
