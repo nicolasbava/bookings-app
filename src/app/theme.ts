@@ -19,13 +19,23 @@ const theme = createTheme({
       main: "#dc004e",
     },
     grey: {
-        100: '#F9FBFF'
+        100: '#F9FBFF',
+        300: '#777E90'
     }
   },
   typography: {
     fontFamily: poppins.style.fontFamily,
     // color: '#141416',
   },
+//   components: {
+//     MuiButton: {
+//         styleOverrides: {
+//             root: {
+//                 background: 'blue'
+
+//             }
+//         }
+//     }}
 });
 
 export default theme;

@@ -7,9 +7,10 @@ import { useState } from "react";
 import FilterBox from "../atoms/Filter/FilterBox";
 
 const Header = () => {
-    const [openFilters, setOpenFilters] = useState<boolean>(true)
+    const [openFilters, setOpenFilters] = useState<boolean>(true);
+    
     return (
-        <Stack mt={2} ml={4} spacing={4}>
+        <Stack mt={2} spacing={4}>
             <Title /> 
             <Box display={'flex'} sx={{position: 'relative'}} gap={2}>
                 <SearchInput />

@@ -1,7 +1,7 @@
 "use client"; 
 
 import { ReactNode } from "react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
+import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import theme from "./theme";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -10,7 +10,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline /> 
-          {children}
+            <Box mx={4} my={2}>
+              {children}
+
+            </Box>
         </ThemeProvider>
       </body>
     </html>

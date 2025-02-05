@@ -17,7 +17,8 @@ const SearchInput = () => {
                     borderRadius: '12px',
                     paddingBlock: '2px',
                     minHeight: '48px',
-                    border: '1px solid #E4ECF2'
+                    border: '1px solid #E4ECF2',
+                    background: 'white'
                 },
                 '.MuiOutlinedInput-notchedOutline': {
                     border: 'none'

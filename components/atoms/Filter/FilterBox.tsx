@@ -1,20 +1,22 @@
-import { Button, Checkbox, FormControlLabel, FormGroup, Stack, Typography } from "@mui/material";
+import theme from "@/app/theme";
+import { Button, FormGroup, Stack, Typography } from "@mui/material";
 import React from "react";
+import CheckboxStyled from "./CheckboxStyled";
 
 interface FilterBoxProps {
     open: boolean
 }
 
-const FilterBox = ({open} : FilterBoxProps) => {
+const FilterBox = ({ open }: FilterBoxProps) => {
     return (
-        <Stack spacing={1} sx={{ display: open ? 'block' : 'none', maxWidth: '250px', border: '2px solid grey', borderRadius: '8px', padding: 2, boxShadow: '2px 2px 4px black'}}>
-            <Typography>RPF Status</Typography>
+        <Stack sx={{ display: open ? 'block' : 'none', border: 'none', borderRadius: '8px', padding: 2, boxShadow: '0px 0px 8px #0000003d', maxWidth: '184px' }}>
+            <Typography sx={{ color: theme.palette.grey[300], fontSize: '12px' }}>RPF STATUS</Typography>
             <FormGroup>
-                <FormControlLabel control={<Checkbox />} label="Active" />
-                <FormControlLabel control={<Checkbox />} label="Closed" />
-                <FormControlLabel control={<Checkbox defaultChecked />} label="Canceled" />
+                <CheckboxStyled label='Active' />
+                <CheckboxStyled label='Closed' />
+                <CheckboxStyled label='Canceled' />
             </FormGroup>
-            <Button variant={'contained'} >Save</Button>
+            <Button variant={'contained'} sx={{marginTop: 1, width: '100%', textTransform: 'capitalize'}} >Save</Button>
         </Stack>
     )
 };
