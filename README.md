@@ -10,7 +10,6 @@ For running this app you must have installed:
 
 ## Table of Contents
 
-- [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -50,6 +49,14 @@ have to open a console at root/frontend
 5. Run the APP
    in root of the project run "npm run dev"
 
+## Usage
+### Frontend
+1. Init frontend app:
+   run "npm run start
+   start Apache service
+   start MySQL service at port 3306
+
+2. Open the browser at http://localhost:3000/
 
 ## Resources
 
