@@ -1,5 +1,5 @@
 
-# Flights Weather APP
+# Rooming List Bookings APP
 
 This is a fullstack app to retrieve a collection of bookings sent to a hotel to obtain confirmation for the requested booking.
 Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL as a database and using TypeORM as ORM.
@@ -13,9 +13,6 @@ For running this app you must have installed:
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contribution](#contribution)
-- [License](#license)
-- [Contact](#contact)
 
 
 ## Technologies Used
