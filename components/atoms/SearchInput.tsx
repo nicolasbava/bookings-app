@@ -1,7 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { InputAdornment, TextField } from "@mui/material";
-// import SearchIcon from '@mui/icons-material/Search';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const SearchInput = () => {
     return (
@@ -28,7 +26,7 @@ const SearchInput = () => {
                 input: {
                     startAdornment: (
                         <InputAdornment position="start" sx={{background: '#f9fbff', padding: '9px', borderRadius: '8px', border: '1px solid #E4ECF2', maxHeight: '4em'}}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} fontSize={'18px'} />
+                            <img src="/search-icon.png" alt="open doc icon" />
                         </InputAdornment>
                     )
                 }

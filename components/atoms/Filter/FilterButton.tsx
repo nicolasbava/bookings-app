@@ -1,6 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { Button } from "@mui/material";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSliders } from "@fortawesome/free-solid-svg-icons";
 
 interface FilterButtonProps {
     open: boolean,
@@ -21,15 +20,11 @@ const FilterButton = ({open, setOpen} : FilterButtonProps) => {
                     textTransform: 'capitalize', 
                     border: `1px solid ${open ? '#4323FF' : '#E4ECF2'}`, 
                     borderRadius: '8px', 
-                    padding: '11px',
-                    paddingRight: '15px',
+                    padding: '11px 18px',
+                    paddingRight: '22px',
                 }}
                 endIcon={
-                    <FontAwesomeIcon 
-                        icon={faSliders} 
-                        size="xs" 
-                        color="#00C2A6" 
-                    />
+                    <img style={{maxWidth: '16px'}} src="/tunes-icon.png" alt="Filter Icon" />
                 }>
                     Filters
             </Button>

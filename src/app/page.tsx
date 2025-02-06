@@ -1,11 +1,6 @@
 import { Box } from "@mui/material";
 import HomePage from "../../components/organisms/HomePage";
 
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css"; // Prevents a flash of unstyled icons
-
-config.autoAddCss = false; 
-
 export default function Page() {
   return (
     <Box sx={{padding: '32px 16px', background: '#f9fbff'}} >

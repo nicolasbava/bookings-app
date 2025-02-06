@@ -1,4 +1,4 @@
-import { Grid2 } from "@mui/material";
+import { Grid2, Stack } from "@mui/material";
 import TitleCard from "./TitleCard";
 import SubtitleCard from "./SubtitleCard";
 import CalendarCard from "./CalendarCard";
@@ -29,12 +29,14 @@ const RoomingListCard = ({rpf_name, bookings, agreement, from_date, to_date, cut
             <Grid2 size={12} mb={2}>
                 <DateRangeCard from_date={from_date} to_date={to_date} />
             </Grid2>
-            <Grid2 size={10.5} paddingRight={'16px'} >
-                <ButtonBlue>{`View Bookings (${JSON.stringify(bookings)})`}</ButtonBlue>
+            <Grid2 size={12}>
+                <Stack direction='row' spacing={1}>
+                    <ButtonBlue>{`View Bookings (${JSON.stringify(bookings)})`}</ButtonBlue>
+                    <OpenDocIcon />
+
+                </Stack>
             </Grid2>
-            <Grid2 size={1.5}>
-                <OpenDocIcon />
-            </Grid2>
+           
         </Grid2>
     )
 };

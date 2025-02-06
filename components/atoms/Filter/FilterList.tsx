@@ -10,7 +10,21 @@ interface FilterListProps {
 
 const FilterList = ({ open }: FilterListProps) => {
     return (
-        <Stack sx={{ position: 'absolute', zIndex: 99, minWidth: '184px', display: open ? 'block' : 'none', border: 'none', borderRadius: '8px', padding: 2, boxShadow: '0px 0px 8px #0000003d', maxWidth: '184px', background: 'white' }}>
+        <Stack 
+            sx={{ 
+                position: 'absolute', 
+                marginTop: '10px', 
+                zIndex: 99, 
+                minWidth: '184px', 
+                display: open ? 'block' : 'none', 
+                border: 'none', 
+                borderRadius: '8px', 
+                padding: 2, 
+                boxShadow: '0px 0px 4px #0000003d', 
+                maxWidth: '184px', 
+                background: 'white' 
+            }}
+        >
             <Typography sx={{ color: theme.palette.grey[300], fontSize: '12px' }}>RFP STATUS</Typography>
             <FormGroup sx={{marginBottom: '8px'}}>
                 <CheckboxStyled label='Active' />
