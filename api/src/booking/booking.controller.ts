@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { BookingService } from './booking.service';
 import { CreateBookingDto } from './dto/booking';
 
@@ -15,10 +15,4 @@ export class BookingController {
   async create(@Body() bookings: CreateBookingDto[]) {
     return this.bookingService.createMultipleBookings(bookings);
   }
-
-//   @Delete('clear')
-//   async clearBookings() {
-//     await this.bookingService.deleteAllBookings();
-//     return { message: 'All bookings have been deleted' };
-//   }
 }

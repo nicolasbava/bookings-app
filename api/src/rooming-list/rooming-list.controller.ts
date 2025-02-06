@@ -9,10 +9,4 @@ export class RoomingListController {
   findAll() {
     return this.roomingListService.findAll();
   }
-
-//   @Delete('clear')
-//   async clearBookings() {
-//     await this.roomingListService.deleteAllBookings();
-//     return { message: 'All bookings have been deleted' };
-//   }
 }

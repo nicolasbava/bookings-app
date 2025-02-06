@@ -21,8 +21,8 @@ export class Booking {
   @Column({ type: 'date', nullable: true })
   checkInDate!: string | null;
 
-  @Column({ type: 'date' })
-  checkOutDate!: string;
+  @Column({ type: 'date', nullable: true })
+  checkOutDate!: string | null;
 
   @OneToMany(() => RoomingListBooking, (rlb) => rlb.booking)
   roomingListBookings!: RoomingListBooking[];

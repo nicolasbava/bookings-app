@@ -1,16 +1,16 @@
 -- Create the bookings table
 CREATE TABLE IF NOT EXISTS bookings (
-    booking_id SERIAL PRIMARY KEY,
-    hotel_id INT NOT NULL,
-    event_id INT NOT NULL,
-    guest_name VARCHAR(255) NOT NULL,
-    guest_phone_number VARCHAR(20) NOT NULL,
-    check_in_date DATE NOT NULL,
-    check_out_date DATE NOT NULL
+    bookingId SERIAL PRIMARY KEY,
+    hotelId INT NOT NULL,
+    eventId INT NOT NULL,
+    guestName VARCHAR(255) NOT NULL,
+    guestPhoneNumber VARCHAR(20) NOT NULL,
+    checkInDate DATE NOT NULL,
+    checkOutDate DATE NOT NULL
 );
 
 -- Insert data into bookings table
-INSERT INTO bookings (booking_id, hotel_id, event_id, guest_name, guest_phone_number, check_in_date, check_out_date) VALUES
+INSERT INTO bookings (bookingId, hotelId, eventId, guestName, guestPhoneNumber, checkInDate, checkOutDate) VALUES
 (1, 101, 1, 'John Doe', '1234567890', '2025-09-01', '2025-09-05'),
 (2, 101, 1, 'Alice Smith', '2345678901', '2025-09-02', '2025-09-06'),
 (3, 101, 1, 'Bob Johnson', '3456789012', '2025-09-03', '2025-09-07'),
@@ -30,21 +30,22 @@ INSERT INTO bookings (booking_id, hotel_id, event_id, guest_name, guest_phone_nu
 (17, 101, 2, 'Rhodes Charles', '(882) 559-2902', '2025-04-12', '2025-05-17'),
 (18, 101, 2, 'Mejia Ferguson', '(842) 592-3410', '2025-03-25', '2025-05-10'),
 (19, 101, 2, 'Dominique Ayers', '(805) 546-3313', '2025-04-03', '2025-05-11')
-ON CONFLICT (booking_id) DO NOTHING; -- Prevent duplicate inserts if re-run
+ON CONFLICT (bookingId) DO NOTHING; -- Prevent duplicate inserts if re-run
 
--- Create the rooming_lists table
+
+-- Create the rooming lists table
 CREATE TABLE rooming_lists (
-    rooming_list_id SERIAL PRIMARY KEY,
-    event_id INT NOT NULL,
-    hotel_id INT NOT NULL,
-    rfp_name VARCHAR(255) NOT NULL,
-    cutoff_date DATE NOT NULL,
+    roomingListId SERIAL PRIMARY KEY,
+    eventId INT NOT NULL,
+    hotelId INT NOT NULL,
+    rfpName VARCHAR(255) NOT NULL,
+    cutOffDate DATE NOT NULL,
     status VARCHAR(50) CHECK (status IN ('Active', 'Closed', 'Cancelled', 'completed', 'received', 'archived', 'Confirmed')),
     agreement_type VARCHAR(50) CHECK (agreement_type IN ('leisure', 'staff', 'artist'))
 );
 
--- Insert data into rooming_lists table
-INSERT INTO rooming_lists (rooming_list_id, event_id, hotel_id, rfp_name, cutOff_date, status, agreement_type)
+-- Insert data into rooming lists table
+INSERT INTO rooming_lists (roomingListId, eventId, hotelId, rfpName, cutOffDate, status, agreement_type)
 VALUES
     (1, 1, 101, 'ACL-2025', '2025-09-30', 'completed', 'leisure'),
     (2, 1, 101, 'ACL-2025', '2025-09-30', 'received', 'staff'),
@@ -56,17 +57,18 @@ VALUES
     (8, 2, 101, 'RLM-2026', '2026-10-25', 'received', 'staff');
 
 
-
-
+-- Create the rooming list bookings table
 CREATE TABLE rooming_list_bookings (
-    rooming_list_id INT,
-    booking_id INT,
-    PRIMARY KEY (rooming_list_id, booking_id),
-    FOREIGN KEY (rooming_list_id) REFERENCES rooming_lists(rooming_list_id),
-    FOREIGN KEY (booking_id) REFERENCES bookings(booking_id)
+    roomingListId INT,
+    bookingId INT,
+    PRIMARY KEY (roomingListId, bookingId),
+    FOREIGN KEY (roomingListId) REFERENCES rooming_lists(roomingListId) ON DELETE CASCADE,
+    FOREIGN KEY (bookingId) REFERENCES bookings(bookingId) ON DELETE CASCADE
 );
 
-INSERT INTO rooming_list_bookings (rooming_list_id, booking_id) VALUES
+
+-- Insert data into rooming list bookings table
+INSERT INTO rooming_list_bookings (roomingListId, bookingId) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
