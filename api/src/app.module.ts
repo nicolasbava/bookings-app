@@ -3,6 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { RoomingListModule } from './rooming-list/rooming-list.module';
+import { BookingModule } from './booking/booking.module';
+import { RoomingListBookingModule } from './rooming-list-booking/rooming-list-booking.module';
 
 @Module({
   imports: [
@@ -17,6 +20,9 @@ import { ConfigModule } from '@nestjs/config';
       autoLoadEntities: true, // Automatically load entities
       synchronize: true, // Auto-sync DB schema (disable in production)
     }),
+    RoomingListModule,
+    BookingModule,
+    RoomingListBookingModule,
   ],
   controllers: [AppController],
   providers: [AppService],
