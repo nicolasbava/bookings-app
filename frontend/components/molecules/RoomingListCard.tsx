@@ -8,7 +8,7 @@ import OpenDocIcon from "../atoms/RoomingListCard/OpenDocIcon";
 ;
 
 interface RoomingListCardProps {
-    rfpName: string,
+    guestName: string,
     id: string,
     checkInDate: string,
     checkOutDate: string,
@@ -17,11 +17,11 @@ interface RoomingListCardProps {
     cutOffDate: string
 }
 
-const RoomingListCard = ({rfpName, bookings, agreement_type, checkInDate, checkOutDate, cutOffDate} : RoomingListCardProps) => {
+const RoomingListCard = ({guestName, bookings, agreement_type, checkInDate, checkOutDate, cutOffDate} : RoomingListCardProps) => {
     return (
         <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px'}}>
             <Grid2 size={9}>
-                <TitleCard>{rfpName}</TitleCard>
+                <TitleCard>{guestName}</TitleCard>
                 <SubtitleCard>{agreement_type}</SubtitleCard>
             </Grid2>
             <Grid2 size={3}>

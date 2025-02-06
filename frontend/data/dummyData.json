@@ -6,110 +6,139 @@
             {
                 "id": "a12",
                 "agreement_type": "Staff",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "status": "open",
+                "guestPhoneNumber": "8291821981"
             },
             {
                 "id": "a15152",
                 "agreement_type": "Leisure",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "closed"
+
             },
             {
                 "id": "a12fda",
                 "agreement_type": "Artists",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+
             },
             {
                 "id": "a515112",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "agreement_type": "Staff",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+
             },
             {
                 "id": "a33312",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
-            },
-            {
-                "id": "a33312",
-                "agreement_type": "Artists",
-                "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
-                "checkOutDate": "02-02-2025",
-                "bookings": 34,
-                "cutOffDate": "08-01-2025"
-            },
-            {
-                "id": "a33312",
-                "agreement_type": "Artists",
-                "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
-                "checkOutDate": "02-02-2025",
-                "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "status": "open"
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "guestName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "guestName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             }
         ]
     },
@@ -121,46 +150,56 @@
                 "id": "a12",
                 "agreement_type": "Staff",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a15152",
                 "agreement_type": "Leisure",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a12fda",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "bookings": 53,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a515112",
                 "agreement_type": "Staff",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 14,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             }
         ]
     },
@@ -170,48 +209,58 @@
         "lends": [
             {
                 "id": "a12",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "agreement_type": "Staff",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a15152",
                 "agreement_type": "Leisure",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a12fda",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "agreement_type": "Artists",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 53,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a515112",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "agreement_type": "Staff",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 14,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             },
             {
                 "id": "a33312",
                 "agreement_type": "Artists",
-                "rfpName": "Game Plays",
+                "guestName": "Game Plays",
                 "checkInDate": "31-01-2025",
                 "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutOffDate": "08-01-2025"
+                "cutOffDate": "08-01-2025",
+                "guestPhoneNumber": "8291821981",
+                "status": "open"
             }
         ]
     }
