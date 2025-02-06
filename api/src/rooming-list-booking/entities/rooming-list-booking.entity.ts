@@ -5,17 +5,17 @@ import { Booking } from '../../booking/entities/booking.entity';
 @Entity('rooming_list_bookings')
 export class RoomingListBooking {
   @PrimaryGeneratedColumn()
-  id: number;
+  id!: number;
 
   @ManyToOne(
     () => RoomingList,
     (roomingList) => roomingList.roomingListBookings,
     { onDelete: 'CASCADE' },
   )
-  roomingList: RoomingList;
+  roomingList!: RoomingList;
 
   @ManyToOne(() => Booking, (booking) => booking.roomingListBookings, {
     onDelete: 'CASCADE',
   })
-  booking: Booking;
+  booking!: Booking;
 }

@@ -4,29 +4,29 @@ import { RoomingListBooking } from '../../rooming-list-booking/entities/rooming-
 @Entity('rooming_lists')
 export class RoomingList {
   @PrimaryGeneratedColumn()
-  roomingList_id: number;
+  roomingListId!: number;
 
   @Column()
-  event_id: number;
+  eventId!: number;
+
+  // @Column()
+  // event_name!: string;
 
   @Column()
-  event_name: string;
+  hotelId!: number;
 
-  @Column()
-  hotel_id: number;
-
-  @Column()
-  rfp_name: string;
+  @Column({ length: 255, nullable: true })
+  rfpName!: string;
 
   @Column({ type: 'date' })
-  cutOff_date: string;
+  cutOffDate!: string;
 
-  @Column()
-  status: string;
+  @Column({ length: 255, nullable: true })
+  status!: string;
 
-  @Column()
-  agreement_type: string;
+  @Column({ length: 255, nullable: true })
+  agreement_type!: string;
 
-  @OneToMany(() => RoomingListBooking, (rlb) => rlb.rooming_list)
-  roomingListBookings: RoomingListBooking[];
+  @OneToMany(() => RoomingListBooking, (rlb) => rlb.roomingList)
+  roomingListBookings!: RoomingListBooking[];
 }

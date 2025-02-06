@@ -4,17 +4,26 @@ import { RoomingListBooking } from '../../rooming-list-booking/entities/rooming-
 @Entity('bookings')
 export class Booking {
   @PrimaryGeneratedColumn()
-  booking_id: number;
+  bookingId!: number;
 
-  @Column()
-  customer_name: string;
+  @Column({ nullable: true })
+  hotelId!: number;
+
+  @Column({ nullable: true })
+  eventId!: number;
+
+  @Column({ nullable: true, length: 255 })
+  guestName!: string;
+
+  @Column({ nullable: true, length: 255 })
+  guestPhoneNumber!: string;
+
+  @Column({ type: 'date', nullable: true })
+  checkInDate!: string | null;
 
   @Column({ type: 'date' })
-  checkin_date: string;
-
-  @Column({ type: 'date' })
-  checkout_date: string;
+  checkOutDate!: string;
 
   @OneToMany(() => RoomingListBooking, (rlb) => rlb.booking)
-  roomingListBookings: RoomingListBooking[];
+  roomingListBookings!: RoomingListBooking[];
 }
