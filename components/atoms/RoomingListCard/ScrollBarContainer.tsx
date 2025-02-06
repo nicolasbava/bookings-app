@@ -124,7 +124,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
             width: `${scrollbarWidth}px`,
             left: `${scrollbarLeft}px`,
             cursor: 'grab',
-            marginTop: '-5px',
+            marginTop: '-7px',
             '&:hover': { backgroundColor: '#CDD4W3' },
             '&:active': { cursor: 'grabbing' },
           }}

@@ -2,11 +2,11 @@ import { Box, Stack, Typography } from "@mui/material";
 import { parseCutoffDate } from "../../../utils";
 
 interface CalendarCard {
-    cutoff_date: string,
+    cutOffDate: string,
 }
 
-const CalendarCard = ({cutoff_date} : CalendarCard) => {
-    const { day, month } = parseCutoffDate(cutoff_date);
+const CalendarCard = ({cutOffDate} : CalendarCard) => {
+    const { day, month } = parseCutoffDate(cutOffDate);
 
     return (
         <Stack alignItems={'center'} >

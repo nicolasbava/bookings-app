@@ -5,48 +5,111 @@
         "lends": [
             {
                 "id": "a12",
-                "agreement": "Staff",
-                "rpf_name": "Game Plays",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "agreement_type": "Staff",
+                "rfpName": "Game Plays",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a15152",
-                "agreement": "Leisure",
-                "rpf_name": "Game Plays",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "agreement_type": "Leisure",
+                "rfpName": "Game Plays",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a12fda",
-                "agreement": "Artists",
-                "rpf_name": "Game Plays",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "agreement_type": "Artists",
+                "rfpName": "Game Plays",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a515112",
-                "rpf_name": "Game Plays",
-                "agreement": "Staff",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "rfpName": "Game Plays",
+                "agreement_type": "Staff",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a33312",
-                "rpf_name": "Game Plays",
-                "agreement": "Artists",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "rfpName": "Game Plays",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
+            },
+            {
+                "id": "a33312",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
+                "bookings": 34,
+                "cutOffDate": "08-01-2025"
             }
         ]
     },
@@ -56,48 +119,48 @@
         "lends": [
             {
                 "id": "a12",
-                "agreement": "Staff",
-                "from_date": "31-01-2025",
-                "rpf_name": "Game Plays",
-                "to_date": "02-02-2025",
+                "agreement_type": "Staff",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a15152",
-                "agreement": "Leisure",
-                "from_date": "31-01-2025",
-                "rpf_name": "Game Plays",
-                "to_date": "02-02-2025",
+                "agreement_type": "Leisure",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a12fda",
-                "agreement": "Artists",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
-                "rpf_name": "Game Plays",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
+                "rfpName": "Game Plays",
                 "bookings": 53,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a515112",
-                "agreement": "Staff",
-                "from_date": "31-01-2025",
-                "rpf_name": "Game Plays",
-                "to_date": "02-02-2025",
+                "agreement_type": "Staff",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
                 "bookings": 14,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a33312",
-                "agreement": "Artists",
-                "from_date": "31-01-2025",
-                "rpf_name": "Game Plays",
-                "to_date": "02-02-2025",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "rfpName": "Game Plays",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             }
         ]
     },
@@ -107,48 +170,48 @@
         "lends": [
             {
                 "id": "a12",
-                "rpf_name": "Game Plays",
-                "agreement": "Staff",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "rfpName": "Game Plays",
+                "agreement_type": "Staff",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a15152",
-                "agreement": "Leisure",
-                "rpf_name": "Game Plays",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "agreement_type": "Leisure",
+                "rfpName": "Game Plays",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a12fda",
-                "rpf_name": "Game Plays",
-                "agreement": "Artists",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "rfpName": "Game Plays",
+                "agreement_type": "Artists",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 53,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a515112",
-                "rpf_name": "Game Plays",
-                "agreement": "Staff",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "rfpName": "Game Plays",
+                "agreement_type": "Staff",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 14,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             },
             {
                 "id": "a33312",
-                "agreement": "Artists",
-                "rpf_name": "Game Plays",
-                "from_date": "31-01-2025",
-                "to_date": "02-02-2025",
+                "agreement_type": "Artists",
+                "rfpName": "Game Plays",
+                "checkInDate": "31-01-2025",
+                "checkOutDate": "02-02-2025",
                 "bookings": 34,
-                "cutoff_date": "08-01-2025"
+                "cutOffDate": "08-01-2025"
             }
         ]
     }
