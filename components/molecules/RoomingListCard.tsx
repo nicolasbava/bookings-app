@@ -1,10 +1,11 @@
 import { Grid2, Stack } from "@mui/material";
-import TitleCard from "./TitleCard";
-import SubtitleCard from "./SubtitleCard";
-import CalendarCard from "./CalendarCard";
-import DateRangeCard from "./DateRangeCard";
-import ButtonBlue from "../ButtonBlue";
-import OpenDocIcon from "./OpenDocIcon";
+import TitleCard from "../atoms/RoomingListCard/TitleCard";
+import SubtitleCard from "../atoms/RoomingListCard/SubtitleCard";
+import CalendarCard from "../atoms/RoomingListCard/CalendarCard";
+import DateRangeCard from "../atoms/RoomingListCard/DateRangeCard";
+import ButtonBlue from "../atoms/ButtonBlue";
+import OpenDocIcon from "../atoms/RoomingListCard/OpenDocIcon";
+;
 
 interface RoomingListCardProps {
     rpf_name: string,
@@ -33,7 +34,6 @@ const RoomingListCard = ({rpf_name, bookings, agreement, from_date, to_date, cut
                 <Stack direction='row' spacing={1}>
                     <ButtonBlue>{`View Bookings (${JSON.stringify(bookings)})`}</ButtonBlue>
                     <OpenDocIcon />
-
                 </Stack>
             </Grid2>
            

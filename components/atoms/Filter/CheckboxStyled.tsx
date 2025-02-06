@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxProps, FormControlLabel } from "@mui/material";
 
 interface CheckboxStyledProps extends CheckboxProps {
-    label: string; // Add the label prop to the interface
+    label: string;
   }
 
 const CheckboxStyled = ({label, ...props}: CheckboxStyledProps) => {
@@ -10,8 +10,8 @@ const CheckboxStyled = ({label, ...props}: CheckboxStyledProps) => {
             
             sx={{
                 '.MuiFormControlLabel-label': {
-                    fontSize: '14px', // Customize label font size
-                    fontWeight: '600    ', // Customize label font weight
+                    fontSize: '14px',
+                    fontWeight: '600',
                 },
             }}
             control={<Checkbox  sx={{

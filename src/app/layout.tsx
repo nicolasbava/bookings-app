@@ -12,7 +12,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <CssBaseline /> 
             <Box mx={4} my={2}>
               {children}
-
             </Box>
         </ThemeProvider>
       </body>

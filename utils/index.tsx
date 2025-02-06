@@ -29,7 +29,6 @@ export const formatDateRange = (fromDate: string, toDate: string): string => {
 export const parseCutoffDate = (cutoffDate: string): { day: number, month: string } => {
   const [day, month] = cutoffDate.split("-").map(Number);
 
-  // Array of month abbreviations
   const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
   return { day, month: monthNames[month - 1] };

@@ -3,7 +3,6 @@ import { parseCutoffDate } from "../../../utils";
 
 interface CalendarCard {
     cutoff_date: string,
-    // day: string
 }
 
 const CalendarCard = ({cutoff_date} : CalendarCard) => {

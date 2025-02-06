@@ -1,8 +1,12 @@
+import Header from "../molecules/Header";
 import RoomingListTemplate from "../organisms/RoomingList"
 
 const HomePage = () => {
     return (
-        <RoomingListTemplate />
+        <>
+            <Header />
+            <RoomingListTemplate />
+        </>
     )
 };
 
