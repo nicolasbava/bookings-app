@@ -19,14 +19,15 @@ const FilterButton = ({open, setOpen} : FilterButtonProps) => {
                     fontSize: '14px', 
                     fontWeight: 500,
                     textTransform: 'capitalize', 
-                    border: `1px solid ${open ? 'blue' : '#E4ECF2'}`, 
+                    border: `1px solid ${open ? '#4323FF' : '#E4ECF2'}`, 
                     borderRadius: '8px', 
-                    padding: '11px'
+                    padding: '11px',
+                    paddingRight: '15px',
                 }}
                 endIcon={
                     <FontAwesomeIcon 
                         icon={faSliders} 
-                        size="2x" 
+                        size="xs" 
                         color="#00C2A6" 
                     />
                 }>

@@ -1,5 +1,5 @@
 import theme from "@/app/theme";
-import { Button, FormGroup, Stack, Typography } from "@mui/material";
+import { FormGroup, Stack, Typography } from "@mui/material";
 import React from "react";
 import CheckboxStyled from "./CheckboxStyled";
 import ButtonBlue from "../ButtonBlue";

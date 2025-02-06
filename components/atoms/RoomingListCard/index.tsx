@@ -18,7 +18,7 @@ interface RoomingListCardProps {
 
 const RoomingListCard = ({rpf_name, bookings, agreement, from_date, to_date, cutoff_date} : RoomingListCardProps) => {
     return (
-        <Grid2 columnSpacing={2} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px'}}>
+        <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px'}}>
             <Grid2 size={9}>
                 <TitleCard>{rpf_name}</TitleCard>
                 <SubtitleCard>{agreement}</SubtitleCard>
@@ -29,10 +29,10 @@ const RoomingListCard = ({rpf_name, bookings, agreement, from_date, to_date, cut
             <Grid2 size={12} mb={2}>
                 <DateRangeCard from_date={from_date} to_date={to_date} />
             </Grid2>
-            <Grid2 size={10} >
+            <Grid2 size={10.5} paddingRight={'16px'} >
                 <ButtonBlue>{`View Bookings (${JSON.stringify(bookings)})`}</ButtonBlue>
             </Grid2>
-            <Grid2 size={2}>
+            <Grid2 size={1.5}>
                 <OpenDocIcon />
             </Grid2>
         </Grid2>

@@ -12,7 +12,7 @@ const SearchInput = () => {
             size={'small'} 
             sx={{
                 '.MuiOutlinedInput-root': {
-                    paddingLeft: '6px',
+                    paddingLeft: '4px',
                     fontSize: '14px',
                     borderRadius: '12px',
                     paddingBlock: '2px',
@@ -27,7 +27,7 @@ const SearchInput = () => {
             slotProps={{
                 input: {
                     startAdornment: (
-                        <InputAdornment position="start" sx={{background: '#f9fbff', padding: '4px', borderRadius: '4px', border: '1px solid #E4ECF2', maxHeight: '4em'}}>
+                        <InputAdornment position="start" sx={{background: '#f9fbff', padding: '9px', borderRadius: '8px', border: '1px solid #E4ECF2', maxHeight: '4em'}}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} fontSize={'18px'} />
                         </InputAdornment>
                     )

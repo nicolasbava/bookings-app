@@ -30,12 +30,13 @@ const CalendarCard = ({cutoff_date} : CalendarCard) => {
                     color: '#3E8CFF', 
                     background: '#3E8CFF1A',
                     borderRadius: '0 0 8px 8px ',
-                    textAlign: 'center'
+                    textAlign: 'center',
+                    lineHeight: '1.3'
                 }}>
                     {day}
                 </Typography>
             </Box>
-            <Typography sx={{fontSize: '12px', color: '#777E90', mt: 1, fontWeight: 500}}>Cut-Off Date</Typography>
+            <Typography sx={{fontSize: '12px', color: '#777E90', mt: '4px', fontWeight: 500}}>Cut-Off Date</Typography>
         </Stack >
     )
 };
