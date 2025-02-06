@@ -9,8 +9,8 @@ export class RoomingList {
   @Column({ type: 'integer', nullable: true })
   eventId!: number | null;
 
-  // @Column()
-  // event_name!: string;
+  @Column()
+  eventName!: string;
 
   @Column({ type: 'integer', nullable: true })
   hotelId!: number;

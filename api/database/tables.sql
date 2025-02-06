@@ -88,3 +88,5 @@ INSERT INTO rooming_list_bookings (roomingListId, bookingId) VALUES
 (8, 17),
 (8, 18),
 (8, 19);
+
+ALTER TABLE rooming_lists ADD COLUMN eventName VARCHAR(255) NOT NULL;

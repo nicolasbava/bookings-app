@@ -15,4 +15,10 @@ export class RoomingListService {
       relations: ['roomingListBookings'],
     });
   }
+
+  async createRoomingLists(
+    roomingLists: RoomingList[],
+  ): Promise<RoomingList[]> {
+    return this.roomingListRepository.save(roomingLists);
+  }
 }

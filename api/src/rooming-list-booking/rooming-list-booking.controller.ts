@@ -1,5 +1,6 @@
-import { Controller, Delete } from '@nestjs/common';
+import { Body, Controller, Delete, Post } from '@nestjs/common';
 import { RoomingListBookingService } from './rooming-list-booking.service';
+import { RoomingListBookingDto } from './dto/rooming-list-booking';
 
 @Controller('rooming-list-booking')
 export class RoomingListBookingController {
@@ -12,9 +13,8 @@ export class RoomingListBookingController {
     await this.roomingListBookingService.deleteAllData();
   }
 
-//   @Post('import')
-//   async importBookings(@Body() data: RoomingListBookingDto[]): Promise<void> {
-//     return this.roomingListBookingService.importBookings(data);
-//   }
-
+  @Post()
+  async importBookings(@Body() data: RoomingListBookingDto[]): Promise<void> {
+    return this.roomingListBookingService.importBookings(data);
+  }
 }
