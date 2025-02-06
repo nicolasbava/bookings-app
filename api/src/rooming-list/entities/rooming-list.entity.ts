@@ -1,9 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryColumn, Column, OneToMany } from 'typeorm';
 import { RoomingListBooking } from '../../rooming-list-booking/entities/rooming-list-booking.entity';
 
 @Entity('rooming_lists')
 export class RoomingList {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   roomingListId!: number;
 
   @Column({ type: 'integer', nullable: true })

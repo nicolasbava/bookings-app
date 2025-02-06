@@ -53,7 +53,7 @@
 
 // }
 
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { RoomingListBooking } from './entities/rooming-list-booking.entity';
@@ -80,10 +80,20 @@ export class RoomingListBookingService {
         const booking = await this.bookingRepository.findOne({
           where: { bookingId: item.bookingId },
         });
+        if (!booking) {
+          throw new NotFoundException(
+            `Booking with ID ${item.bookingId} not found.`,
+          );
+        }
 
         const roomingList = await this.roomingListRepository.findOne({
           where: { roomingListId: item.roomingListId },
         });
+        if (!roomingList) {
+          throw new NotFoundException(
+            `Rooming List with ID ${item.roomingListId} not found.`,
+          );
+        }
 
         if (!booking || !roomingList) {
           throw new Error('Booking or RoomingList not found');
@@ -92,8 +102,6 @@ export class RoomingListBookingService {
         const roomingListBooking = new RoomingListBooking();
         roomingListBooking.booking = booking;
         roomingListBooking.roomingList = roomingList;
-
-        // Map other fields like guestName, checkInDate, etc. if needed
 
         return roomingListBooking;
       }),
