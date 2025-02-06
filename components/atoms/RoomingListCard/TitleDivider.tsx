@@ -19,12 +19,14 @@ const TitleDivider = ({title, index}: TitleDividerProps) => {
                     flex: 1,
                     height: "2px",
                     background: `linear-gradient(to left, ${color}, #f9fbff)`, // Green to Grey
+                    borderTop: 'none'
                 },
                 "&::after": {
                     content: '""',
                     flex: 1,
                     height: "2px",
                     background: `linear-gradient(to right, ${color}, #f9fbff)`, // Green to Grey
+                    borderTop: 'none'
                 },
                 }}
             >
