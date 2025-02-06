@@ -4,7 +4,7 @@ import TitleDivider from "../atoms/RoomingListCard/TitleDivider"
 import CustomScrollbar from "../atoms/RoomingListCard/ScrollBarContainer";
 import data from '../../data/dummyData.json';
 
-const Slider = () => {
+const RoomingList = () => {
     return (
         <>
             {data.map((ele, index) => (
@@ -25,4 +25,4 @@ const Slider = () => {
     )
 };
 
-export default Slider
+export default RoomingList
