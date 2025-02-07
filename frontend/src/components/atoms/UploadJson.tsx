@@ -1,89 +1,17 @@
-import { useRoomingListData } from "@/app/rooming-list/page";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
 import { useState } from "react";
 
 const UploadJson = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const [bookingJson, setBookingJson] = useState({});
     const [roomingListsJson, setRoomingListsJson] = useState({});
     const [roomingListBookingsJson, setRoomingListBookingsJson] = useState({});
-    const { fetchData } = useRoomingListData();
+    const { triggerRefresh } = useGlobalContext(); // Import context function
     const onClose = () => {
         setOpen(false)
         return console.log('success')
     }
-
-    // const handleBookingFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     if (event.target.files && event.target.files.length > 0) {
-    //         const file = event.target.files[0];
-
-    //         const reader = new FileReader();
-    //         reader.onload = (e) => {
-    //             try {
-    //                 const json = JSON.parse(e.target?.result as string);
-    //                 if (Array.isArray(json)) {
-    //                     // Extract all "data" from events
-    //                    console.log('json uploaded', json)
-    //                    setBookingJson(json)
-    //                 } else {
-    //                     alert("Invalid JSON format.");
-    //                 }
-    //             } catch (error) {
-    //                 console.log('error upload json', error)
-    //                 alert("Error parsing JSON.");
-    //             }
-    //         };
-    //         reader.readAsText(file);
-    //     }
-    // };
-
-    // const handleRoomingListsFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     if (event.target.files && event.target.files.length > 0) {
-    //         const file = event.target.files[0];
-
-    //         const reader = new FileReader();
-    //         reader.onload = (e) => {
-    //             try {
-    //                 const json = JSON.parse(e.target?.result as string);
-    //                 if (Array.isArray(json)) {
-    //                     // Extract all "data" from events
-    //                    console.log('json uploaded', json)
-    //                    setRoomingListsJson(json)
-    //                 } else {
-    //                     alert("Invalid JSON format.");
-    //                 }
-    //             } catch (error) {
-    //                 console.log('error upload json', error)
-    //                 alert("Error parsing JSON.");
-    //             }
-    //         };
-    //         reader.readAsText(file);
-    //     }
-    // };
-
-    // const handleRoomingListBookingsFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     if (event.target.files && event.target.files.length > 0) {
-    //         const file = event.target.files[0];
-
-    //         const reader = new FileReader();
-    //         reader.onload = (e) => {
-    //             try {
-    //                 const json = JSON.parse(e.target?.result as string);
-    //                 if (Array.isArray(json)) {
-    //                     // Extract all "data" from events
-    //                    console.log('json uploaded', json)
-    //                    setRoomingListBookingsJson(json)
-    //                 } else {
-    //                     alert("Invalid JSON format.");
-    //                 }
-    //             } catch (error) {
-    //                 console.log('error upload json', error)
-    //                 alert("Error parsing JSON.");
-    //             }
-    //         };
-    //         reader.readAsText(file);
-    //     }
-    // };
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, setState: (data: any) => void) => {
         if (event.target.files && event.target.files.length > 0) {
@@ -137,6 +65,7 @@ const UploadJson = () => {
                 await uploadJson("http://localhost:3002/rooming-list-booking/delete-all", 'DELETE');
                 console.log("Database cleaned ✅");
             } catch (error) {
+                console.error('Error deleting:', error);
                 console.warn("Database cleanup failed, continuing...");
             }
     
@@ -152,7 +81,7 @@ const UploadJson = () => {
             await uploadJson("http://localhost:3002/rooming-list-booking", "POST", roomingListBookingsJson);
             console.log("Rooming List Bookings uploaded ✅");
 
-            await fetchData();
+            triggerRefresh();
     
             alert("All files uploaded successfully!");
             setOpen(false);
@@ -192,7 +121,6 @@ const UploadJson = () => {
                             Upload Bookings Json
                             <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setBookingJson)} />
                         </Button>
-                        {bookingJson.length > 0 && 'JSON'}
 
                         <Button variant="contained" component="label">
                             Upload Rooming Lists Json
