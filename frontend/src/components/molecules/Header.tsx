@@ -6,9 +6,10 @@ import FilterButton from "../atoms/Filter/FilterButton";
 import { useState } from "react";
 import FilterBox from "../atoms/Filter/FilterList";
 import { RoomingListFetch } from "@/interfaces/roomingList";
+import UploadJson from "../atoms/UploadJson";
 
 interface HeaderProps {
-    roomingLists: RoomingListFetch['data']
+    roomingLists?: RoomingListFetch[]
 }
 
 const Header = ({roomingLists} : HeaderProps ) => {
@@ -16,9 +17,13 @@ const Header = ({roomingLists} : HeaderProps ) => {
     
     return (
         <Stack mt={2} spacing={4}>
-            <Title /> 
+            <Stack direction={'row'} justifyContent={'space-between'}>
+                <Title />
+                <UploadJson />
+
+            </Stack>
             <Box display={'flex'}  gap={2}>
-                <SearchInput roomingListBookings={roomingLists} onSelect={(selected) => console.log("Selected:", selected)}  />
+                <SearchInput roomingLists={roomingLists} />
                 <Box sx={{position: 'relative'}}>
                     <FilterButton setOpen={() => setOpenFilters(!openFilters)}  open={openFilters} />
                     <FilterBox setOpen={setOpenFilters} open={openFilters} />

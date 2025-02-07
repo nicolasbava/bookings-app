@@ -1,8 +1,35 @@
 /* eslint-disable @next/next/no-img-element */
-import { InputAdornment, TextField } from "@mui/material";
+'use client'
+import { RoomingListFetch, RoomingListItem } from "@/interfaces/roomingList";
+import { Autocomplete, InputAdornment, TextField } from "@mui/material";
+import { useEffect, useState } from "react";
 
-const SearchInput = () => {
+interface SearchInputProps {
+    roomingLists?: RoomingListFetch[]
+}
+
+const SearchInput = ({roomingLists} : SearchInputProps) => {
+    const [extractedDataState,setExtractedDataState] = useState<RoomingListItem[]>([])
+
+    useEffect(() => {
+        console.log('roomingLists', roomingLists)
+
+        if (Array.isArray(roomingLists)) {
+            // const json = JSON.parse(roomingLists);
+            const extractedData = roomingLists?.flatMap(event => event.data || [])
+        // .map(({ rfpName, agreement_type }) => ({
+        //     rfpName,
+        //     agreement_type
+        //   }));
+          console.log('extracteddata', extractedData)
+          setExtractedDataState(extractedData)
+        } 
+        // else {
+        //     alert("Invalid JSON format.");
+        //   }
+    }, [])
     return (
+        <>
         <TextField 
             id="outlined-basic" 
             placeholder="Search" 
@@ -32,6 +59,14 @@ const SearchInput = () => {
                 }
             }}
         />
+        
+        <Autocomplete
+            disablePortal
+            options={extractedDataState ?? []}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Search" />}
+        />
+        </>
     )
 };
 
