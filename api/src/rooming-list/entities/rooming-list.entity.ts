@@ -9,7 +9,7 @@ export class RoomingList {
   @Column({ type: 'integer', nullable: true })
   eventId!: number | null;
 
-  @Column()
+  @Column({ length: 255, nullable: true })
   eventName!: string;
 
   @Column({ type: 'integer', nullable: true })

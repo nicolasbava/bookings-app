@@ -43,6 +43,9 @@ For running this app you must have installed:
    standing at root/api
    run "npm install" and install all the dependencies
 
+4. Environment Variables:   
+   create an .env file like root/backend/.env
+
 4. Init backend app:
    run "npm run start:dev"
    backend will run on port 3002
