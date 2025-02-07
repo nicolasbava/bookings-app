@@ -15,18 +15,10 @@ const SearchInput = ({roomingLists} : SearchInputProps) => {
         console.log('roomingLists', roomingLists)
 
         if (Array.isArray(roomingLists)) {
-            // const json = JSON.parse(roomingLists);
             const extractedData = roomingLists?.flatMap(event => event.data || [])
-        // .map(({ rfpName, agreement_type }) => ({
-        //     rfpName,
-        //     agreement_type
-        //   }));
-          console.log('extracteddata', extractedData)
-          setExtractedDataState(extractedData)
+            console.log('extracteddata', extractedData)
+            setExtractedDataState(extractedData)
         } 
-        // else {
-        //     alert("Invalid JSON format.");
-        //   }
     }, [])
     return (
         <>
@@ -60,12 +52,12 @@ const SearchInput = ({roomingLists} : SearchInputProps) => {
             }}
         />
         
-        <Autocomplete
+        {/* <Autocomplete
             disablePortal
             options={extractedDataState ?? []}
             sx={{ width: 300 }}
             renderInput={(params) => <TextField {...params} label="Search" />}
-        />
+        /> */}
         </>
     )
 };

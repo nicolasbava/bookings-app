@@ -10,6 +10,7 @@ import { RoomingListItem } from "@/interfaces/roomingList";
 
 const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate, roomingListBookings} : RoomingListItem) => {
     const handleOpenDocClick = () => {
+        console.log('find booking by rooming list')
         console.log("Rooming List Bookings:", roomingListBookings);
       };
     

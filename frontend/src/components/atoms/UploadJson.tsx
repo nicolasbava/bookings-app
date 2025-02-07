@@ -51,14 +51,9 @@ const UploadJson = () => {
             throw error; // Ensure errors are caught in `handleUpload`
         }
     };
-    
-    const handleUpload = async () => {
-        try {
-            if (!bookingJson || !roomingListsJson || !roomingListBookingsJson) {
-                alert("Please upload all JSON files before proceeding.");
-                return;
-            }
-    
+
+    const handleDeleteAllData = async () => {
+        try{
             console.log("Cleaning database...");
         
             try {
@@ -69,6 +64,18 @@ const UploadJson = () => {
                 console.warn("Database cleanup failed, continuing...");
             }
     
+        } catch (error) { 
+            console.log('error', error)
+        } 
+    }
+    
+    const handleUpload = async () => {
+        try {
+            if (!bookingJson || !roomingListsJson || !roomingListBookingsJson) {
+                alert("Please upload all JSON files before proceeding.");
+                return;
+            }
+      
             console.log("Uploading Bookings...");
             await uploadJson("http://localhost:3002/booking", 'POST', bookingJson);
             console.log("Bookings uploaded ✅");
@@ -97,23 +104,23 @@ const UploadJson = () => {
     return (
         <>
             <Button
-                onClick={() => setOpen(true)}
+                onClick={handleDeleteAllData}
                 fullWidth
                 sx={{
                     borderRadius: '8px',
                     fontSize: '14px',
-                    maxWidth: '125px',
+                    maxWidth: '325px',
                     fontWeight: '600',
                     background: '#4323FF',
                     color: 'white',
                     textTransform: 'capitalize'
                 }}
             >
-                Upload Json
+                Insert Bookings and Rooming Lists
             </Button>
 
             <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
-                <DialogTitle>Upload JSON</DialogTitle>
+                <DialogTitle>Insert Bookings and Rooming Lists</DialogTitle>
                 <DialogContent>
                     <Stack spacing={2}>
 
