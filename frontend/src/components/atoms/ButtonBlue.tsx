@@ -1,12 +1,14 @@
 import { Button } from "@mui/material";
 
 interface ButtonBlueProps {
-    children: string | number
+    children: string | number,
+    onClick?: () => void
 }
 
-const ButtonBlue = ({children}: ButtonBlueProps) => {
+const ButtonBlue = ({children, onClick}: ButtonBlueProps) => {
     return (
         <Button 
+            onClick={onClick}
             fullWidth 
             sx={{
                 borderRadius: '8px', 

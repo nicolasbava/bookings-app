@@ -78,6 +78,9 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
   const scrollbarWidth = (clientWidth / scrollWidth) * clientWidth;
   const scrollbarLeft = (scrollLeft / scrollWidth) * clientWidth;
 
+  const childrenArray = React.Children.toArray(children);
+  const shouldHideNavBar = childrenArray.length <= 3;
+
   return (
     <Box
       sx={{
@@ -93,7 +96,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
         ref={containerRef}
         sx={{
           flex: 1,
-          overflowX: 'scroll',
+          overflowX: shouldHideNavBar ?  'scroll' : 'hidden',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
           '&::-webkit-scrollbar': { display: 'none' },

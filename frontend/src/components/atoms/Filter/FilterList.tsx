@@ -5,10 +5,11 @@ import CheckboxStyled from "./CheckboxStyled";
 import ButtonBlue from "../ButtonBlue";
 
 interface FilterListProps {
-    open: boolean
+    open: boolean,
+    setOpen: (ele: boolean) => void
 }
 
-const FilterList = ({ open }: FilterListProps) => {
+const FilterList = ({ open, setOpen }: FilterListProps) => {
     return (
         <Stack 
             sx={{ 
@@ -31,7 +32,7 @@ const FilterList = ({ open }: FilterListProps) => {
                 <CheckboxStyled label='Closed' />
                 <CheckboxStyled label='Canceled' />
             </FormGroup>
-            <ButtonBlue >Save</ButtonBlue>
+            <ButtonBlue onClick={() => setOpen(false)}>Save</ButtonBlue>
         </Stack>
     )
 };

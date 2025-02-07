@@ -25,6 +25,7 @@ export type RoomingListBookingItem = {
         guestName: string
         guestPhoneNumber: string
         hotelId: number
+        agreement_type?: AgreementType
     }
 }
 
