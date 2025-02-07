@@ -8,7 +8,7 @@ import { Booking } from 'src/booking/entities/booking.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([RoomingListBooking, RoomingList, Booking]), // Import the entities and repositories
+    TypeOrmModule.forFeature([RoomingListBooking, RoomingList, Booking]),
   ],
   providers: [RoomingListBookingService],
   controllers: [RoomingListBookingController],
