@@ -1,12 +1,17 @@
-import { useState } from "react";
-import { Autocomplete, TextField, InputAdornment } from "@mui/material";
+import { Key, useState } from "react";
+import { Autocomplete, TextField, InputAdornment, AutocompleteProps } from "@mui/material";
+import { RoomingListItem } from "@/interfaces/roomingList";
 
-const RoomingListAutocomplete = ({ extractedDataState }) => {
+interface RoomingListAutocompleteProps extends AutocompleteProps {
+    extractedDataState : RoomingListItem[]
+}
+
+const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocompleteProps) => {
     const [searchValue, setSearchValue] = useState("");
 
     // Transform data into a searchable format
     const options = extractedDataState?.map((item, index) => ({
-        id: `${item.rfpName}-${item.agreement_type}-${index}`,
+        id: `${item.rfpName}-${item.agreement_type}-${index}-${Date.now()}`,
         label: `${item.rfpName} (${item.agreement_type})`, // Display both fields
         value: item.rfpName, // Use `rfpName` as the main identifier
         agreement_type: item.agreement_type
@@ -26,7 +31,7 @@ const RoomingListAutocomplete = ({ extractedDataState }) => {
                 },
                 width: 300 }}
             size={'small'}
-            key={(option) => option.id}
+            isOptionEqualToValue={(option, value) => option.id === value.id}
             renderInput={(params) => (
                 <TextField
                     {...params}

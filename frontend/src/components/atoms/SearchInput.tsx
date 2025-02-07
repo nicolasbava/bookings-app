@@ -2,7 +2,6 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { RoomingListFetch, RoomingListItem } from "@/interfaces/roomingList";
-import { Autocomplete, InputAdornment, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import RoomingListAutocomplete from "./RoomingListAutocomplete";
 

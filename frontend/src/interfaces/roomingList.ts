@@ -1,3 +1,14 @@
+export interface BookingType {
+    bookingId: number
+    checkInDate: string
+    checkOutDate: string
+    eventId: number
+    guestName: string
+    guestPhoneNumber: string
+    hotelId: number
+    agreement_type?: AgreementType
+}
+
 export interface RoomingListType {
     roomingListId: number
     eventId: number
@@ -9,6 +20,13 @@ export interface RoomingListType {
     eventName: string
 }
 
+export interface RoomingListBookingType {
+    roomingListId: number,
+    bookingId: number
+}
+
+
+
 enum AgreementType {
     LEISURE = 'leisure',
     STAFF = 'staff',
@@ -17,16 +35,7 @@ enum AgreementType {
 
 export type RoomingListBookingItem = {
     id: number,
-    booking: {
-        bookingId: number
-        checkInDate: string
-        checkOutDate: string
-        eventId: number
-        guestName: string
-        guestPhoneNumber: string
-        hotelId: number
-        agreement_type?: AgreementType
-    }
+    booking: RoomingListBookingType
 }
 
 export type RoomingListItem = {

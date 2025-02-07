@@ -1,20 +1,20 @@
 import { useGlobalContext } from "@/context/GlobalContext";
+import { BookingType, RoomingListBookingType, RoomingListType } from "@/interfaces/roomingList";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
 import { useState } from "react";
-import ButtonBlue from "./ButtonBlue";
 
 const UploadJson = () => {
     const [open, setOpen] = useState(false);
-    const [bookingJson, setBookingJson] = useState();
-    const [roomingListsJson, setRoomingListsJson] = useState();
-    const [roomingListBookingsJson, setRoomingListBookingsJson] = useState();
+    const [bookingJson, setBookingJson] = useState<BookingType>();
+    const [roomingListsJson, setRoomingListsJson] = useState<RoomingListType>();
+    const [roomingListBookingsJson, setRoomingListBookingsJson] = useState<RoomingListBookingType>();
     const { triggerRefresh } = useGlobalContext(); // Import context function
     const onClose = () => {
         setOpen(false)
         return console.log('success')
     }
 
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, setState: (data: any) => void) => {
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, setState: (data: BookingType | RoomingListType | RoomingListBookingType ) => void) => {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -34,7 +34,7 @@ const UploadJson = () => {
         }
     };
 
-    const uploadJson = async (url: string, method: string = 'POST', jsonData?: any) => {
+    const uploadJson = async (url: string, method: string = 'POST', jsonData?: unknown) => {
         try {
             const response = await fetch(url, {
                 method,
