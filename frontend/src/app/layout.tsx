@@ -10,8 +10,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <ThemeProvider theme={theme}>
           <CssBaseline /> 
-            <Box mx={4} my={2}>
-              {children}
+            <Box sx={{padding: '32px 16px', background: '#f9fbff'}} >
+              <Box mx={4} my={2}>
+                {children}
+              </Box>
             </Box>
         </ThemeProvider>
       </body>

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import HomePage from "../../components/templates/HomePage";
+import HomePage from "../components/templates/HomePage";
 
 export default function Page() {
   return (

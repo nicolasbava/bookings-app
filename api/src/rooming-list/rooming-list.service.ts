@@ -10,28 +10,53 @@ export class RoomingListService {
     private readonly roomingListRepository: Repository<RoomingList>,
   ) {}
 
-  findAll() {
-    return this.roomingListRepository.find({
-      relations: ['roomingListBookings'],
+  async findAll() {
+    const roomingLists = await this.roomingListRepository.find({
+      relations: ['roomingListBookings', 'roomingListBookings.booking'],
     });
+
+    return this.groupByEventNameAndCalcDate(roomingLists);
   }
 
   async findAllByEventName() {
-    // Step 1: Fetch rooming lists with their related bookings
     const roomingLists = await this.roomingListRepository
       .createQueryBuilder('rooming_list')
       .leftJoinAndSelect(
         'rooming_list.roomingListBookings',
         'roomingListBookings',
       )
-      .leftJoinAndSelect('roomingListBookings.booking', 'booking') // Join booking details for dates
       .orderBy('rooming_list.eventName', 'ASC')
       .getMany();
 
-    // Step 2: Group rooming lists by event name and calculate min/max dates
-    const groupedRoomingLists = this.groupByEventNameAndCalcDate(roomingLists);
-    return groupedRoomingLists;
+    const groupedByEvent = roomingLists.reduce(
+      (acc, roomingList) => {
+        let eventGroup = acc.find((e) => e.eventName === roomingList.eventName);
+        if (!eventGroup) {
+          eventGroup = { eventName: roomingList.eventName, roomingLists: [] };
+          acc.push(eventGroup);
+        }
+        eventGroup.roomingLists.push(roomingList);
+        return acc;
+      },
+      [] as { eventName: string; roomingLists: RoomingList[] }[],
+    );
+
+    return groupedByEvent;
   }
+
+  // async findAllByEventName() {
+  //   const roomingLists = await this.roomingListRepository
+  //     .createQueryBuilder('rooming_list')
+  //     .leftJoinAndSelect(
+  //       'rooming_list.roomingListBookings',
+  //       'roomingListBookings',
+  //     )
+  //     .leftJoinAndSelect('roomingListBookings.booking', 'booking')
+  //     .orderBy('rooming_list.eventName', 'ASC')
+  //     .getMany();
+
+  //   return this.groupByEventNameAndCalcDate(roomingLists);
+  // }
 
   private groupByEventNameAndCalcDate(roomingLists: RoomingList[]) {
     return roomingLists.reduce(
@@ -40,7 +65,6 @@ export class RoomingListService {
           acc[roomingList.eventName] = [];
         }
 
-        // Step 3: Calculate the min and max dates for each rooming list
         const { minDate, maxDate } = this.calculateBookingDates(roomingList);
         roomingList['minDate'] = minDate;
         roomingList['maxDate'] = maxDate;
@@ -57,7 +81,6 @@ export class RoomingListService {
       return { minDate: null, maxDate: null };
     }
 
-    // Extract the check-in and check-out dates from all bookings
     const dates = roomingList.roomingListBookings.map((rlb) => {
       const booking = rlb.booking;
       return {
@@ -66,7 +89,6 @@ export class RoomingListService {
       };
     });
 
-    // Calculate the minimum check-in and maximum check-out dates
     const minDate = new Date(
       Math.min(...dates.map((d) => d.checkInDate.getTime())),
     );

@@ -1,13 +1,18 @@
 import { Box, Stack } from "@mui/material";
 import TitleDivider from "../atoms/RoomingListCard/TitleDivider"
 import CustomScrollbar from "../atoms/RoomingListCard/ScrollBarContainer";
-import data from '../../data/dummyData.json';
+import data from '../../../data/dummyData.json';
 import RoomingListCard from "../molecules/RoomingListCard";
+import { RoomingListType } from "@/interfaces/roomingList";
+
+// type RoomingListProps = {
+//     roomingList: RoomingListType[]
+// }
 
 const RoomingList = () => {
     return (
         <>
-            {data.map((ele, index) => (
+            {/* {data.map((ele, index) => (
                 <Box key={index}>
                     <TitleDivider title={ele.event} index={index} />
                     <CustomScrollbar>
@@ -20,6 +25,19 @@ const RoomingList = () => {
                         </Stack>
                     </CustomScrollbar>
                 </Box>
+            ))} */}
+
+            {data.map((eventData, index) => (
+            <Box key={index}>
+                <TitleDivider title={eventData.eventName} index={index} />
+                <CustomScrollbar>
+                <Stack direction={'row'} spacing={2} mt={2}>
+                    {eventData.roomingLists.map((room, roomIndex) => (
+                    <RoomingListCard key={roomIndex} {...room} />
+                    ))}
+                </Stack>
+                </CustomScrollbar>
+            </Box>
             ))}
         </>
     )
