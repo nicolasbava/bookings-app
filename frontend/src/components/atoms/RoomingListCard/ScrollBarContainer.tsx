@@ -79,7 +79,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
   const scrollbarLeft = (scrollLeft / scrollWidth) * clientWidth;
 
   const childrenArray = React.Children.toArray(children);
-  const shouldHideNavBar = childrenArray.length <= 3;
+  const shouldHideNavBar = childrenArray[0].props.children.length <= 3;
 
   return (
     <Box
@@ -96,7 +96,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
         ref={containerRef}
         sx={{
           flex: 1,
-          overflowX: shouldHideNavBar ?  'scroll' : 'hidden',
+          overflowX: shouldHideNavBar ? 'hidden'  :  'scroll' ,
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
           '&::-webkit-scrollbar': { display: 'none' },
@@ -108,7 +108,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
       {/* Custom Scrollbar Track */}
       <Box
         sx={{
-          height: '4px',
+          height: shouldHideNavBar ? '0px' : '4px',
           backgroundColor: '#CDD4E5',
           borderRadius: '4px',
           position: 'relative',
@@ -119,7 +119,7 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
         <Box
           ref={thumbRef}
           sx={{
-            height: '16px',
+            height: shouldHideNavBar ? '0px' : '16px',
             backgroundColor: '#CDD4E5',
             borderRadius: '4px',
             position: 'absolute',
