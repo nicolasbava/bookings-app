@@ -8,11 +8,25 @@ import OpenDocIcon from "../atoms/RoomingListCard/OpenDocIcon";
 import { RoomingListItem } from "@/interfaces/roomingList";
 
 
-const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate, roomingListBookings} : RoomingListItem) => {
-    const handleOpenDocClick = () => {
-        console.log('find booking by rooming list')
-        console.log("Rooming List Bookings:", roomingListBookings);
-      };
+const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate, roomingListBookings, roomingListId} : RoomingListItem) => {
+    const handleOpenDocClick = async () => {
+        console.log("Fetching bookings for Rooming List ID:", roomingListId);
+
+        try {
+            const response = await fetch(`http://localhost:3002/rooming-list-booking/${roomingListId}`);
+            if (!response.ok) throw new Error("Failed to fetch bookings");
+
+            const data = await response.json();
+            console.log("=====================");
+            console.log("Fetched Bookings for Rooming List ID:", roomingListId);
+            console.log("Data:", data);
+            console.log("=====================");
+
+        } catch (error) {
+            console.error("Error fetching rooming list bookings:", error);
+        }
+    };
+
     
     return (
         <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px', maxWidth: '410px'}}>
