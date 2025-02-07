@@ -7,6 +7,8 @@ Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL 
 For running this app you must have installed:
 1. Node.js (LTS 20+)
 2. PostgreSQL
+3. Chrome Extension: Allow CORS: Access-Control-Allow-Origin
+
 
 ## Table of Contents
 
@@ -27,31 +29,46 @@ For running this app you must have installed:
 
 ## Installation
 
+### Backend
+1. Create Database: 
+   open pgAdmin
+   create a database in pgAdmin under the name of: db-bookings 
+
+2. Create Tables and populate: 
+   open a Query Tool in db-bookings
+   run the SQL query which is at root/api/database/tables.sql
+   it will create the tables and populate them
+
+3. Install dependencies backend:
+   standing at root/api
+   run "npm install" and install all the dependencies
+
+4. Init backend app:
+   run "npm run start:dev"
+   backend will run on port 3002
+
 ### Frontend
-1. Open console at location: To run the frontend you 
-have to open a console at root/frontend
+1. Open console at location: 
+   open a console at root/frontend
 
 2. Install dependencies:
-    standing at root/frontend
-    run "npm i" and install all the dependencies
+   standing at root/frontend
+   run "npm install" and install all the dependencies
 
-3. Init frontend app:
-   run "npm run start
-   start Apache service
-   start MySQL service at port 3306
-
-4. Install Project Dependencies
-   at root project run "npm run install"
-
-5. Run the APP
+3. Run the APP
    in root of the project run "npm run dev"
+   it will run on port 3000
 
 ## Usage
+### Backend
+1. Init backend app:
+   run "npm run start:dev"
+
+2. Run frontend
+
 ### Frontend
 1. Init frontend app:
-   run "npm run start
-   start Apache service
-   start MySQL service at port 3306
+   run "npm run dev"
 
 2. Open the browser at http://localhost:3000/
 
@@ -64,3 +81,16 @@ have to open a console at root/frontend
 
 ### Frontend
 - {/}: Rooming List 
+
+
+### Backend
+- {/ , GET}: Hello World
+
+- {/booking , GET}: Get All Bookings
+- {/booking , POST}: Upload multiple Bookings
+
+- {/booking , GET}: Get All Rooming List
+- {/booking , POST}: Upload multiple Rooming List
+
+- {/rooming-list-booking , POST}: Upload multiple Rooming List Bookings
+- {/rooming-list-booking/delete-all , DELETE}: Deletes all the data of that table and associated data, so it deletes the 3 tables data
