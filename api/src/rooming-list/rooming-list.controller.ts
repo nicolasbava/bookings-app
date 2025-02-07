@@ -7,6 +7,11 @@ export class RoomingListController {
   constructor(private readonly roomingListService: RoomingListService) {}
 
   @Get()
+  findAllByEventName() {
+    return this.roomingListService.findAllByEventName();
+  }
+
+  @Get('/all')
   findAll() {
     return this.roomingListService.findAll();
   }
