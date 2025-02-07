@@ -29,7 +29,7 @@ const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate,
 
     
     return (
-        <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px', maxWidth: '410px'}}>
+        <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px', maxWidth: '401px'}}>
             <Grid2 size={9}>
                 <TitleCard>{rfpName}</TitleCard>
                 <SubtitleCard>{agreement_type}</SubtitleCard>

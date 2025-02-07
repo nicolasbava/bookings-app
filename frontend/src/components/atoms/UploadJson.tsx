@@ -8,7 +8,7 @@ const UploadJson = () => {
     const [bookingJson, setBookingJson] = useState<BookingType>();
     const [roomingListsJson, setRoomingListsJson] = useState<RoomingListType>();
     const [roomingListBookingsJson, setRoomingListBookingsJson] = useState<RoomingListBookingType>();
-    const { triggerRefresh } = useGlobalContext(); // Import context function
+    const { triggerRefresh } = useGlobalContext();
     const onClose = () => {
         setOpen(false)
         return console.log('success')
@@ -49,7 +49,7 @@ const UploadJson = () => {
             return response;
         } catch (error) {
             console.error("Upload error:", error);
-            throw error; // Ensure errors are caught in `handleUpload`
+            throw error;
         }
     };
 

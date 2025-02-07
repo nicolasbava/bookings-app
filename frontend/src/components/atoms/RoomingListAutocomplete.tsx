@@ -1,11 +1,11 @@
-import { Key, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import { Autocomplete, TextField, InputAdornment, AutocompleteProps } from "@mui/material";
 import { RoomingListItem } from "@/interfaces/roomingList";
 
-interface RoomingListAutocompleteProps extends AutocompleteProps {
-    extractedDataState : RoomingListItem[]
+interface RoomingListAutocompleteProps extends Partial<AutocompleteProps<any, any, any, any>> {
+    extractedDataState: RoomingListItem[];
 }
-
 const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocompleteProps) => {
     const [searchValue, setSearchValue] = useState("");
 
