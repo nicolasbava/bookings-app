@@ -1,6 +1,7 @@
 import { useGlobalContext } from "@/context/GlobalContext";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
 import { useState } from "react";
+import ButtonBlue from "./ButtonBlue";
 
 const UploadJson = () => {
     const [open, setOpen] = useState(false);
@@ -126,17 +127,17 @@ const UploadJson = () => {
                 <DialogContent>
                     <Stack spacing={2}>
 
-                        <Button variant="contained" component="label">
+                        <Button sx={{background: '#4323FF'}} variant="contained" component="label">
                             Upload Bookings Json
                             <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setBookingJson)} />
                         </Button>
 
-                        <Button variant="contained" component="label">
+                        <Button sx={{background: '#4323FF'}} variant="contained" component="label">
                             Upload Rooming Lists Json
                             <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setRoomingListsJson)} />
                         </Button>
 
-                        <Button variant="contained" component="label">
+                        <Button sx={{background: '#4323FF'}} variant="contained" component="label">
                             Upload Rooming List Bookings Json
                             <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setRoomingListBookingsJson)} />
                         </Button>
@@ -144,8 +145,11 @@ const UploadJson = () => {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button disabled={!bookingJson || !roomingListsJson || !roomingListBookingsJson} variant="outlined" onClick={handleUpload} sx={{marginRight: 'auto'}}>Upload</Button>
-                    <Button onClick={onClose} color="secondary">Close</Button>
+                    <Stack direction={'row'} justifyContent={'space-between'} mx={2} mb={2} width={'100%'} >
+
+                        <Button disabled={!bookingJson || !roomingListsJson || !roomingListBookingsJson} variant="contained" onClick={handleUpload} sx={{marginRight: 'auto'}}>Upload</Button>
+                        <Button onClick={onClose} color="secondary" variant="outlined">Close</Button>
+                    </Stack>
                 </DialogActions>
             </Dialog>
         </> 
