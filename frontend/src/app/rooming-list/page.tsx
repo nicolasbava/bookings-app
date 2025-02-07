@@ -32,7 +32,7 @@ const RoomingListContainer = () => {
 
   return (
     <>
-      <Header />
+      <Header roomingLists={roomingLists} />
       {roomingLists.length === 0 ? 
         <Typography mt={4} ml={1}>No booking found  </Typography>  
         : <RoomingList data={roomingLists} />

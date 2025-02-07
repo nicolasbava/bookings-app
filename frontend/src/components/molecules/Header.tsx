@@ -14,6 +14,7 @@ interface HeaderProps {
 
 const Header = ({roomingLists} : HeaderProps ) => {
     const [openFilters, setOpenFilters] = useState<boolean>(false);
+    console.log('roomingList s', roomingLists)
     
     return (
         <Stack mt={2} spacing={4}>

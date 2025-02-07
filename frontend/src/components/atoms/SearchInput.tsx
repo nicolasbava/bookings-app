@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { RoomingListFetch, RoomingListItem } from "@/interfaces/roomingList";
@@ -12,14 +13,14 @@ const SearchInput = ({roomingLists} : SearchInputProps) => {
     const [extractedDataState,setExtractedDataState] = useState<RoomingListItem[]>([])
 
     useEffect(() => {
-        // console.log('roomingLists', roomingLists)
+        console.log('roomingLists', roomingLists)
 
         if (Array.isArray(roomingLists)) {
             const extractedData = roomingLists?.flatMap(event => event.data || [])
             console.log('extracteddata', extractedData)
             setExtractedDataState(extractedData)
         } 
-    }, [])
+    }, [roomingLists?.length])
     return (
         <>
         <TextField 

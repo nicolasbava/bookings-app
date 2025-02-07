@@ -7,7 +7,7 @@ interface TitleCardProps {
 const TitleCard = ({children} : TitleCardProps) => {
     return (
         <Typography sx={{fontSize: '16px', fontWeight: '700', color: '#141416'}}>
-            {children}
+            [{children}]
         </Typography>
     )
 };
