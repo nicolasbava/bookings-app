@@ -1,4 +1,4 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import TitleDivider from "../atoms/RoomingListCard/TitleDivider";
 import CustomScrollbar from "../atoms/RoomingListCard/ScrollBarContainer";
 import RoomingListCard from "../molecules/RoomingListCard";
@@ -30,13 +30,15 @@ const RoomingList = ({ data }: RoomingListProps) => {
                     return (
                         <Box key={index}>
                             <TitleDivider title={eventData.eventName} index={index} />
-                            <CustomScrollbar>
-                                <Stack direction={"row"} spacing={2} mt={2}>
-                                    {filteredRooms?.map((room, roomIndex) => (
-                                        <RoomingListCard key={roomIndex} {...room} />
-                                    ))}
-                                </Stack>
-                            </CustomScrollbar>
+                            {filteredRooms.length === 0 ?  <Typography fontWeight={'bold'} mt={2}>No bookings found</Typography> : 
+                                <CustomScrollbar>
+                                    <Stack direction={"row"} spacing={2} mt={2}>
+                                        {filteredRooms?.map((room, roomIndex) => (
+                                            <RoomingListCard key={roomIndex} {...room} />
+                                        ))}
+                                    </Stack>
+                                </CustomScrollbar>
+                            }
                         </Box>
                     );
                 })}

@@ -6,6 +6,7 @@ interface GlobalContextType {
   triggerRefresh: () => void;
   selectedFilters: string[];
   toggleFilter: (status: string) => void;
+  setFilters: (filters: string[]) => void;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -22,6 +23,10 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
     );
   };
 
+  const setFilters = (filters: string[]) => {
+    setSelectedFilters(filters);
+  };
+
   const triggerRefresh = () => {
     setShouldRefresh((prev) => !prev); // Toggle value to trigger re-renders
   };
@@ -31,7 +36,8 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
         shouldRefresh, 
         triggerRefresh, 
         selectedFilters,
-        toggleFilter
+        toggleFilter,
+        setFilters
     }}>
       {children}
     </GlobalContext.Provider>
@@ -41,7 +47,7 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
 export const useGlobalContext = () => {
     const context = useContext(GlobalContext);
     if (!context) {
-      throw new Error("useFilter must be used within a FilterProvider");
+      throw new Error("useGlobalContext must be used within a GlobalContextProvider");
     }
     return context;
-  };
+};

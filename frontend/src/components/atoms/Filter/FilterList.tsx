@@ -1,6 +1,6 @@
 import theme from "@/app/theme";
 import { FormGroup, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CheckboxStyled from "./CheckboxStyled";
 import ButtonBlue from "../ButtonBlue";
 import { useGlobalContext } from "@/context/GlobalContext";
@@ -11,8 +11,28 @@ interface FilterListProps {
 }
 
 const FilterList = ({ open, setOpen }: FilterListProps) => {
-    const { selectedFilters, toggleFilter } = useGlobalContext();
-    
+    const { selectedFilters, setFilters } = useGlobalContext();
+    const [tempFilters, setTempFilters] = useState<string[]>([]);
+
+    // Sync temporary filters with global state when the component opens
+    useEffect(() => {
+        if (open) {
+            setTempFilters(selectedFilters);
+        }
+    }, [open, selectedFilters]);
+
+    const handleCheckboxChange = (status: string) => {
+        setTempFilters(prevFilters =>
+            prevFilters.includes(status)
+                ? prevFilters.filter(f => f !== status) // Remove if already selected
+                : [...prevFilters, status] // Add if not selected
+        );
+    };
+
+    const handleSave = () => {
+        setFilters(tempFilters); // Apply the temporary selections
+        setOpen(false);
+    };
 
     return (
         <Stack
@@ -36,14 +56,14 @@ const FilterList = ({ open, setOpen }: FilterListProps) => {
                     <CheckboxStyled
                         key={status}
                         label={status}
-                        checked={selectedFilters.includes(status)}
-                        onChange={() => toggleFilter(status)}
+                        checked={tempFilters.includes(status)}
+                        onChange={() => handleCheckboxChange(status)}
                     />
                 ))}
             </FormGroup>
-            <ButtonBlue onClick={() => setOpen(false)}>Save</ButtonBlue>
+            <ButtonBlue onClick={handleSave}>Save</ButtonBlue>
         </Stack>
-    )
+    );
 };
 
 export default FilterList;
