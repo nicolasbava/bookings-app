@@ -1,11 +1,11 @@
+import RoomingListContainer from "@/app/rooming-list/page";
 import Header from "../molecules/Header";
-import RoomingListTemplate from "../organisms/RoomingList"
 
 const HomePage = () => {
     return (
         <>
             <Header />
-            <RoomingListTemplate />
+            <RoomingListContainer />
         </>
     )
 };
