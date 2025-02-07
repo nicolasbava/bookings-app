@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <GlobalContextProvider>
 
           <CssBaseline /> 
-            <Box sx={{padding: '32px 16px', background: '#f9fbff'}} >
+            <Box sx={{padding: '32px 16px', background: '#f9fbff', minHeight: '100vh'}} >
               <Box mx={4} my={2}>
                 {children}
               </Box>

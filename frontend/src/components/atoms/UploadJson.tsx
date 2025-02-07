@@ -4,9 +4,9 @@ import { useState } from "react";
 
 const UploadJson = () => {
     const [open, setOpen] = useState(false);
-    const [bookingJson, setBookingJson] = useState({});
-    const [roomingListsJson, setRoomingListsJson] = useState({});
-    const [roomingListBookingsJson, setRoomingListBookingsJson] = useState({});
+    const [bookingJson, setBookingJson] = useState();
+    const [roomingListsJson, setRoomingListsJson] = useState();
+    const [roomingListBookingsJson, setRoomingListBookingsJson] = useState();
     const { triggerRefresh } = useGlobalContext(); // Import context function
     const onClose = () => {
         setOpen(false)
@@ -45,7 +45,7 @@ const UploadJson = () => {
                 throw new Error(`Failed to upload ${url}: ${response.statusText}`);
             }
     
-            return response.json();
+            return response;
         } catch (error) {
             console.error("Upload error:", error);
             throw error; // Ensure errors are caught in `handleUpload`
@@ -66,7 +66,9 @@ const UploadJson = () => {
     
         } catch (error) { 
             console.log('error', error)
-        } 
+        } finally {
+            setOpen(true)
+        }
     }
     
     const handleUpload = async () => {
@@ -142,7 +144,7 @@ const UploadJson = () => {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button variant="outlined" onClick={handleUpload} sx={{marginRight: 'auto'}}>Upload</Button>
+                    <Button disabled={!bookingJson || !roomingListsJson || !roomingListBookingsJson} variant="outlined" onClick={handleUpload} sx={{marginRight: 'auto'}}>Upload</Button>
                     <Button onClick={onClose} color="secondary">Close</Button>
                 </DialogActions>
             </Dialog>

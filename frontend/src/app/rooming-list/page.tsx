@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import Header from "@/components/molecules/Header";
 import RoomingList from "@/components/organisms/RoomingList";
 import { getRoomingLists } from "@/services/roomingListService";
-import { useGlobalContext } from "@/context/GlobalContext";
+import { Typography } from "@mui/material";
 
 const RoomingListContainer = () => {
   const [roomingLists, setRoomingLists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const { selectedFilters } = useGlobalContext();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,7 +33,10 @@ const RoomingListContainer = () => {
   return (
     <>
       <Header />
-      <RoomingList data={roomingLists} />
+      {roomingLists.length === 0 ? 
+        <Typography mt={4} ml={1}>No booking found  </Typography>  
+        : <RoomingList data={roomingLists} />
+      }
     </>
   );
 };
