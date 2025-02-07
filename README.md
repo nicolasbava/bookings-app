@@ -37,7 +37,8 @@ For running this app you must have installed:
 2. Create Tables and populate: 
    open a Query Tool in db-bookings
    run the SQL query which is at root/api/database/tables.sql
-   it will create the tables and populate them
+   it will create the tables
+   populate the tables from the frontend, from the button "Insert Bookings and Rooming Lists"
 
 3. Install dependencies backend:
    standing at root/api
@@ -92,8 +93,10 @@ For running this app you must have installed:
 - {/booking , GET}: Get All Bookings
 - {/booking , POST}: Upload multiple Bookings
 
-- {/booking , GET}: Get All Rooming List
-- {/booking , POST}: Upload multiple Rooming List
+- {/rooming-list , GET}: Get All Rooming List with Booking associations 
+- {/rooming-list/all , GET}: Get All Rooming List without Booking associations 
+- {/rooming-list , POST}: Upload multiple Rooming List
 
+- {/rooming-list-booking/:roomingListId , GET}: Get all Bookings associated to a roomingListId
 - {/rooming-list-booking , POST}: Upload multiple Rooming List Bookings
-- {/rooming-list-booking/delete-all , DELETE}: Deletes all the data of that table and associated data, so it deletes the 3 tables data
+- {/rooming-list-booking/delete-all , DELETE}: Deletes all the data of that table and associated data, so it deletes the data from the 3 tables
