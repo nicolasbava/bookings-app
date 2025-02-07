@@ -5,34 +5,25 @@ import CalendarCard from "../atoms/RoomingListCard/CalendarCard";
 import DateRangeCard from "../atoms/RoomingListCard/DateRangeCard";
 import ButtonBlue from "../atoms/ButtonBlue";
 import OpenDocIcon from "../atoms/RoomingListCard/OpenDocIcon";
-;
+import { RoomingListItem } from "@/interfaces/roomingList";
 
-interface RoomingListCardProps {
-    guestName: string,
-    id: string,
-    checkInDate: string,
-    checkOutDate: string,
-    bookings: number,
-    agreement_type: string,
-    cutOffDate: string
-}
 
-const RoomingListCard = ({guestName, bookings, agreement_type, checkInDate, checkOutDate, cutOffDate} : RoomingListCardProps) => {
+const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate, roomingListBookings} : RoomingListItem) => {
     return (
-        <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px'}}>
+        <Grid2 columnSpacing={0.5} container sx={{padding: '16px 16px', borderRadius: '8px', border: '2px solid #E4ECF2', background: 'white', minWidth: '400px', maxWidth: '410px'}}>
             <Grid2 size={9}>
-                <TitleCard>{guestName}</TitleCard>
+                <TitleCard>{rfpName}</TitleCard>
                 <SubtitleCard>{agreement_type}</SubtitleCard>
             </Grid2>
             <Grid2 size={3}>
                 <CalendarCard cutOffDate={cutOffDate} />
             </Grid2>
             <Grid2 size={12} mb={2}>
-                <DateRangeCard checkInDate={checkInDate} checkOutDate={checkOutDate} />
+                <DateRangeCard checkInDate={minDate} checkOutDate={maxDate} />
             </Grid2>
             <Grid2 size={12}>
                 <Stack direction='row' spacing={1}>
-                    <ButtonBlue>{`View Bookings (${JSON.stringify(bookings)})`}</ButtonBlue>
+                    <ButtonBlue>{`View Bookings (${JSON.stringify(roomingListBookings.length)})`}</ButtonBlue>
                     <OpenDocIcon />
                 </Stack>
             </Grid2>

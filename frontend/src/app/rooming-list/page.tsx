@@ -1,10 +1,11 @@
 'use client'
 import RoomingList from "@/components/organisms/RoomingList";
+import { RoomingListType } from "@/interfaces/roomingList";
 import { getRoomingLists } from "@/services/roomingListService";
 import { useEffect, useState } from "react";
 
 const RoomingListContainer = () => {
-  const [roomingLists, setRoomingLists] = useState([]);
+  const [roomingLists, setRoomingLists] = useState<RoomingListType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,7 +34,7 @@ const RoomingListContainer = () => {
   }
 
 //   return <RoomingList roomingLists={roomingLists} />;
-  return <RoomingList />;
+  return <RoomingList data={roomingLists} />;
 };
 
 export default RoomingListContainer;

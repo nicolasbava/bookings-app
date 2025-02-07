@@ -26,10 +26,19 @@ export const formatDateRange = (fromDate: string, toDate: string): string => {
   return `${from.toLocaleDateString("en-US", optionsFrom)} - ${to.toLocaleDateString("en-US", optionsTo)}`;
 };
 
-export const parseCutoffDate = (cutoffDate: string): { day: number, month: string } => {
-  const [day, month] = cutoffDate.split("-").map(Number);
+// export const parseCutoffDate = (cutoffDate: string): { day: number, month: string } => {
+//   const [day, month] = cutoffDate.split("-").map(Number);
+
+//   const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+//   return { day, month: monthNames[month - 1] };
+// };
+
+export const parseCutoffDate = (cutoffDate: string): { day: number; month: string } => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_year, month, day] = cutoffDate.split("-").map(Number);
 
   const monthNames = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
-
+  // console.log('month name', monthNames[month])
   return { day, month: monthNames[month - 1] };
 };

@@ -18,32 +18,6 @@ export class RoomingListService {
     return this.groupByEventNameAndCalcDate(roomingLists);
   }
 
-  async findAllByEventName() {
-    const roomingLists = await this.roomingListRepository
-      .createQueryBuilder('rooming_list')
-      .leftJoinAndSelect(
-        'rooming_list.roomingListBookings',
-        'roomingListBookings',
-      )
-      .orderBy('rooming_list.eventName', 'ASC')
-      .getMany();
-
-    const groupedByEvent = roomingLists.reduce(
-      (acc, roomingList) => {
-        let eventGroup = acc.find((e) => e.eventName === roomingList.eventName);
-        if (!eventGroup) {
-          eventGroup = { eventName: roomingList.eventName, roomingLists: [] };
-          acc.push(eventGroup);
-        }
-        eventGroup.roomingLists.push(roomingList);
-        return acc;
-      },
-      [] as { eventName: string; roomingLists: RoomingList[] }[],
-    );
-
-    return groupedByEvent;
-  }
-
   // async findAllByEventName() {
   //   const roomingLists = await this.roomingListRepository
   //     .createQueryBuilder('rooming_list')
@@ -51,29 +25,79 @@ export class RoomingListService {
   //       'rooming_list.roomingListBookings',
   //       'roomingListBookings',
   //     )
-  //     .leftJoinAndSelect('roomingListBookings.booking', 'booking')
   //     .orderBy('rooming_list.eventName', 'ASC')
   //     .getMany();
 
-  //   return this.groupByEventNameAndCalcDate(roomingLists);
+  //   const groupedByEvent = roomingLists.reduce(
+  //     (acc, roomingList) => {
+  //       let eventGroup = acc.find((e) => e.eventName === roomingList.eventName);
+  //       if (!eventGroup) {
+  //         eventGroup = { eventName: roomingList.eventName, roomingLists: [] };
+  //         acc.push(eventGroup);
+  //       }
+  //       eventGroup.roomingLists.push(roomingList);
+  //       return acc;
+  //     },
+  //     [] as { eventName: string; roomingLists: RoomingList[] }[],
+  //   );
+
+  //   return groupedByEvent;
+  // }
+
+  async findAllByEventName() {
+    const roomingLists = await this.roomingListRepository
+      .createQueryBuilder('rooming_list')
+      .leftJoinAndSelect(
+        'rooming_list.roomingListBookings',
+        'roomingListBookings',
+      )
+      .leftJoinAndSelect('roomingListBookings.booking', 'booking')
+      .orderBy('rooming_list.eventName', 'ASC')
+      .getMany();
+
+    return this.groupByEventNameAndCalcDate(roomingLists);
+  }
+
+  // private groupByEventNameAndCalcDate(roomingLists: RoomingList[]) {
+  //   return roomingLists.reduce(
+  //     (acc, roomingList) => {
+  //       if (!acc[roomingList.eventName]) {
+  //         acc[roomingList.eventName] = [];
+  //       }
+
+  //       const { minDate, maxDate } = this.calculateBookingDates(roomingList);
+  //       roomingList['minDate'] = minDate;
+  //       roomingList['maxDate'] = maxDate;
+
+  //       acc[roomingList.eventName].push(roomingList);
+  //       return acc;
+  //     },
+  //     {} as Record<string, RoomingList[]>,
+  //   );
   // }
 
   private groupByEventNameAndCalcDate(roomingLists: RoomingList[]) {
-    return roomingLists.reduce(
+    const grouped = roomingLists.reduce(
       (acc, roomingList) => {
-        if (!acc[roomingList.eventName]) {
-          acc[roomingList.eventName] = [];
+        let eventGroup = acc.find((e) => e.eventName === roomingList.eventName);
+
+        if (!eventGroup) {
+          eventGroup = { eventName: roomingList.eventName, data: [] };
+          acc.push(eventGroup);
         }
 
         const { minDate, maxDate } = this.calculateBookingDates(roomingList);
         roomingList['minDate'] = minDate;
         roomingList['maxDate'] = maxDate;
 
-        acc[roomingList.eventName].push(roomingList);
+        eventGroup.data.push(roomingList);
+
         return acc;
       },
-      {} as Record<string, RoomingList[]>,
+      [] as { eventName: string; data: RoomingList[] }[],
     );
+
+    return grouped;
   }
 
   private calculateBookingDates(roomingList: RoomingList) {
