@@ -13,7 +13,7 @@ export const getColorByIndex = (index: number) => {
 
 export const formatDateRange = (fromDate: string, toDate: string): string => {
   const parseDate = (dateStr: string) => {
-    const [day, month, year] = dateStr.split("-").map(Number);
+    const [year, month, day] = dateStr.split("-").map(Number);
     return new Date(year, month - 1, day);
   };
 
