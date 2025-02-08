@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 
-import { Booking } from 'src/booking/entities/booking.entity';
-import { RoomingList } from 'src/rooming-list/entities/rooming-list.entity';
+import { Booking } from '../../booking/entities/booking.entity';
+import { RoomingList } from '../../rooming-list/entities/rooming-list.entity';
 import { Entity, ManyToOne, PrimaryColumn, JoinColumn } from 'typeorm';
 
 @Entity('rooming_list_bookings')
