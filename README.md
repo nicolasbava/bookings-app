@@ -94,7 +94,6 @@ For running this app you must have installed:
 - {/booking , POST}: Upload multiple Bookings
 
 - {/rooming-list , GET}: Get All Rooming List with Booking associations 
-- {/rooming-list/all , GET}: Get All Rooming List without Booking associations 
 - {/rooming-list , POST}: Upload multiple Rooming List
 
 - {/rooming-list-booking/:roomingListId , GET}: Get all Bookings associated to a roomingListId

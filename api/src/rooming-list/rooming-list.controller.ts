@@ -11,11 +11,6 @@ export class RoomingListController {
     return this.roomingListService.findAllByEventName();
   }
 
-  @Get('/all')
-  findAll() {
-    return this.roomingListService.findAll();
-  }
-
   @Post()
   async createRoomingLists(
     @Body() roomingLists: RoomingList[],
