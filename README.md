@@ -46,6 +46,7 @@ For running this app you must have installed:
 
 4. Environment Variables:   
    create an .env file like root/backend/.env
+   there is an example of .env in .env.example 
 
 4. Init backend app:
    run "npm run start:dev"
