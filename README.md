@@ -99,3 +99,11 @@ For running this app you must have installed:
 - {/rooming-list-booking/:roomingListId , GET}: Get all Bookings associated to a roomingListId
 - {/rooming-list-booking , POST}: Upload multiple Rooming List Bookings
 - {/rooming-list-booking/delete-all , DELETE}: Deletes all the data of that table and associated data, so it deletes the data from the 3 tables
+
+
+## Testing
+
+### Backend
+1. Integration Tests: 
+   step into root/api
+   run "npm run test:e2e"

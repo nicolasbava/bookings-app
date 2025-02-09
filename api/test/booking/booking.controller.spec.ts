@@ -5,7 +5,7 @@ import { BookingController } from '../../src/booking/booking.controller';
 import { BookingService } from '../../src/booking/booking.service';
 import { CreateBookingDto } from '../../src/booking/dto/booking';
 
-describe('BookingController (Integration)', () => {
+describe('BookingController', () => {
   let bookingController: BookingController;
   let bookingService: BookingService;
 
