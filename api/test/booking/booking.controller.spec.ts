@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable @typescript-eslint/unbound-method */
 import { Test, TestingModule } from '@nestjs/testing';
-import { BookingController } from '../src/booking/booking.controller';
-import { BookingService } from '../src/booking/booking.service';
-import { CreateBookingDto } from '../src/booking/dto/booking';
+import { BookingController } from '../../src/booking/booking.controller';
+import { BookingService } from '../../src/booking/booking.service';
+import { CreateBookingDto } from '../../src/booking/dto/booking';
 
 describe('BookingController (Integration)', () => {
   let bookingController: BookingController;
@@ -61,36 +61,4 @@ describe('BookingController (Integration)', () => {
     });
   });
 
-//   it('should create multiple bookings', async () => {
-//     const createBookingDto: CreateBookingDto[] = [
-//       {
-//         bookingId: 1,
-//         hotelId: 100,
-//         eventId: 200,
-//         guestName: 'John Doe',
-//         guestPhoneNumber: '+1234567890',
-//         checkInDate: '2025-02-01',
-//         checkOutDate: '2025-02-05',
-//       },
-//       {
-//         bookingId: 2,
-//         hotelId: 101,
-//         eventId: 201,
-//         guestName: 'Jane Smith',
-//         guestPhoneNumber: '+0987654321',
-//         checkInDate: '2025-03-10',
-//         checkOutDate: '2025-03-15',
-//       },
-//     ];
-
-//     jest
-//       .spyOn(bookingService, 'createMultipleBookings')
-//       .mockResolvedValue(createBookingDto);
-
-//     const result = await bookingController.create(createBookingDto);
-//     expect(result).toEqual(createBookingDto);
-//     expect(bookingService.createMultipleBookings).toHaveBeenCalledWith(
-//       createBookingDto,
-//     );
-//   });
 });
