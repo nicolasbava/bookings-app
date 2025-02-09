@@ -25,7 +25,6 @@ For running this app you must have installed:
 - [ POSTGRESQL ](https://www.postgresql.org/docs/)
 - [ TYPE ORM ](https://typeorm.io/)
 - [ MATERIAL UI ](https://redis.io/es/)
-- [ DOCKER ](https://www.docker.com/)
 
 ## Installation
 
@@ -102,7 +101,7 @@ For running this app you must have installed:
 - {/rooming-list-booking/delete-all , DELETE}: Deletes all the data of that table and associated data, so it deletes the data from the 3 tables
 
 
-## Testing
+## Tests
 
 ### Backend
 1. Integration Tests: 
