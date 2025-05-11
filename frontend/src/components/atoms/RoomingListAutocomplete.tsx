@@ -29,7 +29,7 @@ const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocomplet
                 '.MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall':{
                     padding: '4px'
                 },
-                width: 300 }}
+                width: {xs: '100%', md: 300} }}
             size={'small'}
             isOptionEqualToValue={(option, value) => option.id === value.id}
             renderInput={(params) => (

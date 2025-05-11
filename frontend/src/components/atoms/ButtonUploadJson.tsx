@@ -3,7 +3,7 @@ import { BookingType, RoomingListBookingType, RoomingListType } from "@/interfac
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
 import { useState } from "react";
 
-const UploadJson = () => {
+const ButtonUploadJson = () => {
     const [open, setOpen] = useState(false);
     const [bookingJson, setBookingJson] = useState<BookingType>();
     const [roomingListsJson, setRoomingListsJson] = useState<RoomingListType>();
@@ -112,11 +112,15 @@ const UploadJson = () => {
                 sx={{
                     borderRadius: '8px',
                     fontSize: '14px',
-                    maxWidth: '325px',
+                    maxWidth:{xs: 'auto', md: '225px'},
+                    maxHeight: '80px',
+                    marginBlock: 'auto',
+                    marginLeft: 'auto',
                     fontWeight: '600',
                     background: '#4323FF',
                     color: 'white',
-                    textTransform: 'capitalize'
+                    textTransform: 'capitalize',
+                    padding: 2
                 }}
             >
                 Insert Bookings and Rooming Lists
@@ -156,4 +160,4 @@ const UploadJson = () => {
     )
 };
 
-export default UploadJson;
+export default ButtonUploadJson;

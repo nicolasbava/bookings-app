@@ -3,8 +3,10 @@ import { createContext, useContext, useState } from "react";
 
 interface GlobalContextType {
   shouldRefresh: boolean;
-  triggerRefresh: () => void;
   selectedFilters: string[];
+  orderAscendent: boolean;
+  changeOrderAscendent: () => void;
+  triggerRefresh: () => void;
   toggleFilter: (status: string) => void;
   setFilters: (filters: string[]) => void;
 }
@@ -14,6 +16,7 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 export const GlobalContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [shouldRefresh, setShouldRefresh] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [orderAscendent, setOrderAscendent] = useState<boolean>(false);
 
   const toggleFilter = (status: string) => {
     setSelectedFilters(prevFilters =>
@@ -31,11 +34,17 @@ export const GlobalContextProvider = ({ children }: { children: React.ReactNode 
     setShouldRefresh((prev) => !prev); // Toggle value to trigger re-renders
   };
 
+  const changeOrderAscendent = () => {
+    setOrderAscendent((prev) => !prev)
+  }
+
   return (
     <GlobalContext.Provider value={{ 
         shouldRefresh, 
-        triggerRefresh, 
         selectedFilters,
+        orderAscendent,
+        changeOrderAscendent,
+        triggerRefresh, 
         toggleFilter,
         setFilters
     }}>

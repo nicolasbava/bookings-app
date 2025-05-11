@@ -1,38 +1,39 @@
 /* eslint-disable @next/next/no-img-element */
 import { Button } from "@mui/material";
-import StyledButton from "./StyledButton";
 
 interface FilterButtonProps {
-    open: boolean,
-    setOpen: (open : boolean) => void,
+    text: string,
+    value: boolean,
+    onClick: (open : boolean) => void,
+    endIconImg: string,
+    borderStyle?: boolean
 }
 
-const FilterButton = ({open, setOpen} : FilterButtonProps) => {
+const StyledButton = ({text, value, onClick, endIconImg, borderStyle = false, ...rest} : FilterButtonProps) => {
     return (
         <>
-            {/* <Button 
+            <Button 
                 variant={'outlined'} 
-                onClick={() => setOpen(!open)}
+                onClick={() => onClick(!value)}
                 sx={{
                     background: 'white', 
                     color: 'black', 
                     fontSize: '14px', 
                     fontWeight: 500,
                     textTransform: 'capitalize', 
-                    border: `1px solid ${open ? '#4323FF' : '#E4ECF2'}`, 
+                    border: borderStyle ? `1px solid ${value ? '#4323FF' : '#E4ECF2'}` : '1px solid #E4ECF2', 
                     borderRadius: '8px', 
                     padding: '11px 18px',
                     paddingRight: '22px',
                 }}
+                {...rest}
                 endIcon={
-                    <img style={{maxWidth: '16px'}} src="/tunes-icon.png" alt="Filter Icon" />
+                    <img style={{maxWidth: '16px'}} src={endIconImg} alt="Filter Icon" />
                 }>
-                    Filters
-            </Button> */}
-            <StyledButton borderStyle={true}  text={'Filter'}  value={open} onClick={setOpen} endIconImg={"/tunes-icon.png"} />
-
+                    {text}
+            </Button>
         </>
     )
 };
 
-export default FilterButton;
+export default StyledButton;

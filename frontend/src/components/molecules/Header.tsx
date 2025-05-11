@@ -6,28 +6,34 @@ import FilterButton from "../atoms/Filter/FilterButton";
 import { useState } from "react";
 import FilterBox from "../atoms/Filter/FilterList";
 import { RoomingListFetch } from "@/interfaces/roomingList";
-import UploadJson from "../atoms/UploadJson";
+import SwitchChangeOrder from "../atoms/Filter/SwitchChangeOrder";
+import ButtonUploadJson from "../atoms/ButtonUploadJson";
 
 interface HeaderProps {
     roomingLists?: RoomingListFetch[]
 }
 
-const Header = ({roomingLists} : HeaderProps ) => {
+const Header = ({ roomingLists }: HeaderProps) => {
     const [openFilters, setOpenFilters] = useState<boolean>(false);
     console.log('roomingList s', roomingLists)
-    
+
     return (
         <Stack mt={2} spacing={4}>
-            <Stack direction={'row'} justifyContent={'space-between'}>
-                <Title />
-                <UploadJson />
-
+            <Stack direction={{ xs: 'column', md: 'row' }} justifyContent={'space-between'}>
+                <Box mb={{ xs: 2, lg: 0 }}>
+                    <Title />
+                </Box>
+                <ButtonUploadJson />
             </Stack>
-            <Box display={'flex'}  gap={2}>
+
+            <Box display={{ xs: 'block', md: 'flex' }} gap={2}>
                 <SearchInput roomingLists={roomingLists} />
-                <Box sx={{position: 'relative'}}>
-                    <FilterButton setOpen={() => setOpenFilters(!openFilters)}  open={openFilters} />
-                    <FilterBox setOpen={setOpenFilters} open={openFilters} />
+                <Box  display={{ xs: 'flex' }}  gap={2}  mt={{xs: 2, md: 0}} >
+                    <Box sx={{marginLeft: 'auto'}}>
+                        <FilterButton setOpen={() => setOpenFilters(!openFilters)} open={openFilters} />
+                        <FilterBox setOpen={setOpenFilters} open={openFilters} />
+                    </Box>
+                    <SwitchChangeOrder />
                 </Box>
             </Box>
 

@@ -9,17 +9,17 @@ interface SearchInputProps {
     roomingLists?: RoomingListFetch[]
 }
 
-const SearchInput = ({roomingLists} : SearchInputProps) => {
-    const [extractedDataState,setExtractedDataState] = useState<RoomingListItem[]>([])
+const SearchInput = ({ roomingLists }: SearchInputProps) => {
+    const [extractedDataState, setExtractedDataState] = useState<RoomingListItem[]>([])
 
     useEffect(() => {
         if (Array.isArray(roomingLists)) {
             const extractedData = roomingLists?.flatMap(event => event.data || [])
             setExtractedDataState(extractedData)
-        } 
+        }
     }, [roomingLists?.length]);
 
-    
+
     return (
         <>
             <RoomingListAutocomplete extractedDataState={extractedDataState} />
