@@ -1,7 +1,7 @@
 import { useGlobalContext } from "@/context/GlobalContext";
 import { BookingType, RoomingListBookingType, RoomingListType } from "@/interfaces/roomingList";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
 const ButtonUploadJson = () => {
     const [open, setOpen] = useState(false);
@@ -14,7 +14,7 @@ const ButtonUploadJson = () => {
         return console.log('success')
     }
 
-    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, setState: (data: BookingType | RoomingListType | RoomingListBookingType ) => void) => {
+    const handleFileChange = <T extends BookingType | RoomingListType | RoomingListBookingType>(event: React.ChangeEvent<HTMLInputElement>, setState: Dispatch<SetStateAction<T | undefined>>) => {
         if (event.target.files && event.target.files.length > 0) {
             const file = event.target.files[0];
             const reader = new FileReader();
@@ -58,7 +58,7 @@ const ButtonUploadJson = () => {
             console.log("Cleaning database...");
         
             try {
-                await uploadJson("http://localhost:3002/rooming-list-booking/delete-all", 'DELETE');
+                await uploadJson("http://localhost:3001/rooming-list-booking/delete-all", 'DELETE');
                 console.log("Database cleaned ✅");
             } catch (error) {
                 console.error('Error deleting:', error);
@@ -80,15 +80,15 @@ const ButtonUploadJson = () => {
             }
       
             console.log("Uploading Bookings...");
-            await uploadJson("http://localhost:3002/booking", 'POST', bookingJson);
+            await uploadJson("http://localhost:3001/booking", 'POST', bookingJson);
             console.log("Bookings uploaded ✅");
     
             console.log("Uploading Rooming Lists...");
-            await uploadJson("http://localhost:3002/rooming-lists", "POST", roomingListsJson);
+            await uploadJson("http://localhost:3001/rooming-lists", "POST", roomingListsJson);
             console.log("Rooming Lists uploaded ✅");
     
             console.log("Uploading Rooming List Bookings...");
-            await uploadJson("http://localhost:3002/rooming-list-booking", "POST", roomingListBookingsJson);
+            await uploadJson("http://localhost:3001/rooming-list-booking", "POST", roomingListBookingsJson);
             console.log("Rooming List Bookings uploaded ✅");
 
             triggerRefresh();
@@ -133,17 +133,17 @@ const ButtonUploadJson = () => {
 
                         <Button sx={{background: '#4323FF'}} variant="contained" component="label">
                             Upload Bookings Json
-                            <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setBookingJson)} />
+                            <input type="file" accept=".json" hidden onChange={(e) => handleFileChange<BookingType>(e, setBookingJson)} />
                         </Button>
 
                         <Button sx={{background: '#4323FF'}} variant="contained" component="label">
                             Upload Rooming Lists Json
-                            <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setRoomingListsJson)} />
+                            <input type="file" accept=".json" hidden onChange={(e) => handleFileChange<RoomingListType>(e, setRoomingListsJson)} />
                         </Button>
 
                         <Button sx={{background: '#4323FF'}} variant="contained" component="label">
                             Upload Rooming List Bookings Json
-                            <input type="file" accept=".json" hidden onChange={(e) => handleFileChange(e, setRoomingListBookingsJson)} />
+                            <input type="file" accept=".json" hidden onChange={(e) => handleFileChange<RoomingListBookingType>(e, setRoomingListBookingsJson)} />
                         </Button>
                     </Stack>
 

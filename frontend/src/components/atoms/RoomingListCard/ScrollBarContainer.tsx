@@ -80,7 +80,8 @@ const CustomHorizontalScrollbar: React.FC<{ children: React.ReactNode }> = ({ ch
 
   const childrenArray = React.Children.toArray(children);
 
-  const shouldHideNavBar = React.isValidElement(childrenArray[0]) && React.Children.count(childrenArray[0].props.children) <= 3;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const shouldHideNavBar = React.isValidElement(childrenArray[0]) && React.Children.count((childrenArray[0].props as any).children) <= 3;
 
   return (
     <Box

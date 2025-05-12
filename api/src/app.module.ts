@@ -15,7 +15,7 @@ import { RoomingListBooking } from './rooming-list-booking/entities/rooming-list
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DATABASE_HOST,
+      host: process.env.DATABASE_HOST || 'db',
       port: 5432,
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,

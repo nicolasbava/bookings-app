@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Autocomplete, TextField, InputAdornment, AutocompleteProps } from "@mui/material";
@@ -11,7 +12,8 @@ const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocomplet
 
     // Transform data into a searchable format
     const options = extractedDataState?.map((item, index) => ({
-        id: `${item.rfpName}-${item.agreement_type}-${index}-${Date.now()}`,
+        id: `${item.rfpName}-${item.agreement_type}-${index}`,
+        key: `${item.rfpName}-${item.agreement_type}-${index}`,
         label: `${item.rfpName} (${item.agreement_type})`, // Display both fields
         value: item.rfpName, // Use `rfpName` as the main identifier
         agreement_type: item.agreement_type
@@ -29,7 +31,8 @@ const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocomplet
                 '.MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall':{
                     padding: '4px'
                 },
-                width: {xs: '100%', md: 300} }}
+                width: {xs: '100%', md: 300}    
+            }}
             size={'small'}
             isOptionEqualToValue={(option, value) => option.id === value.id}
             renderInput={(params) => (
