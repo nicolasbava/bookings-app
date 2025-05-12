@@ -2,6 +2,7 @@ import { useGlobalContext } from "@/context/GlobalContext";
 import { BookingType, RoomingListBookingType, RoomingListType } from "@/interfaces/roomingList";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
+import { toast } from "react-toastify";
 
 const ButtonUploadJson = () => {
     const [open, setOpen] = useState(false);
@@ -26,7 +27,7 @@ const ButtonUploadJson = () => {
                     setState(json);
                 } catch (error) {
                     console.error("Error parsing JSON:", error);
-                    alert("Invalid JSON file.");
+                    toast.error("Invalid JSON file.");
                 }
             };
 
@@ -62,6 +63,9 @@ const ButtonUploadJson = () => {
 
             try {
                 await executeFetch("http://localhost:3001/rooming-list-booking/delete-all", 'DELETE');
+                toast.success('Database cleaned')
+                triggerRefresh();
+
                 console.log("Database cleaned ✅");
             } catch (error) {
                 console.error('Error deleting:', error);
@@ -69,6 +73,7 @@ const ButtonUploadJson = () => {
             }
 
         } catch (error) {
+            toast.error('Error cleaning database')
             console.log('error', error)
         } finally {
             setOpen(true)
@@ -95,12 +100,12 @@ const ButtonUploadJson = () => {
             console.log("Rooming List Bookings uploaded ✅");
 
             
-            alert("All files uploaded successfully!");
+            toast.success("All files uploaded successfully!");
             setOpen(false);
             triggerRefresh();
         } catch (error) {
             console.error('Error uploading:', error);
-            alert("Upload failed! Check console for details.");
+            toast.error("Upload failed! Check console for details.");
         } finally {
             setOpen(false)
         }

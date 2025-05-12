@@ -4,6 +4,7 @@ import { ReactNode } from "react";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import theme from "./theme";
 import { GlobalContextProvider } from "@/context/GlobalContext";
+import { ToastContainer } from 'react-toastify';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             </Box>
         </GlobalContextProvider>
         </ThemeProvider>
+        <ToastContainer theme='colored' />
       </body>
     </html>
   );
