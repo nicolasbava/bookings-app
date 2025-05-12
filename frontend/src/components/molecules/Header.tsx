@@ -19,8 +19,8 @@ const Header = ({ roomingLists }: HeaderProps) => {
 
     return (
         <Stack mt={2} spacing={4}>
-            <Stack direction={{ xs: 'column', md: 'row' }} justifyContent={'space-between'}>
-                <Box mb={{ xs: 2, lg: 0 }}>
+            <Stack direction={{ xs: 'column', md: 'row' }} justifyContent={'space-between'} alignItems={'center'}>
+                <Box mb={{ xs: 2, sm: 0 }}>
                     <Title />
                 </Box>
                 <ButtonUploadJson />

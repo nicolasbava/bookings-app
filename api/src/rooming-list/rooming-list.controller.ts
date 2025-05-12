@@ -7,11 +7,14 @@ import {
 } from '@nestjs/common';
 import { RoomingListService } from './rooming-list.service';
 import { RoomingList } from './entities/rooming-list.entity';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 
 @Controller('rooming-lists')
 export class RoomingListController {
   constructor(private readonly roomingListService: RoomingListService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAllByEventName() {
     try {

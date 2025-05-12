@@ -9,6 +9,8 @@ import { RoomingListBookingModule } from './rooming-list-booking/rooming-list-bo
 import { RoomingList } from './rooming-list/entities/rooming-list.entity';
 import { Booking } from './booking/entities/booking.entity';
 import { RoomingListBooking } from './rooming-list-booking/entities/rooming-list-booking.entity';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './auth/jwt.strategy';
 
 @Module({
   imports: [
@@ -27,8 +29,12 @@ import { RoomingListBooking } from './rooming-list-booking/entities/rooming-list
     RoomingListModule,
     BookingModule,
     RoomingListBookingModule,
+    JwtModule.register({
+      secret: 'mysecret',
+      signOptions: { expiresIn: '1d' },
+    }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}
