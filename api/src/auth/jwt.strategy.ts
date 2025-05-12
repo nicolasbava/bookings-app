@@ -10,6 +10,10 @@ interface JwtPayload {
   username: string;
 }
 
+// {
+//   "sub": "1",
+//   "username": "nicolas",
+// }
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {

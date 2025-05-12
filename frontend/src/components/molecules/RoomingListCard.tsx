@@ -6,6 +6,7 @@ import DateRangeCard from "../atoms/RoomingListCard/DateRangeCard";
 import ButtonBlue from "../atoms/ButtonBlue";
 import OpenDocIcon from "../atoms/RoomingListCard/OpenDocIcon";
 import { RoomingListItem } from "@/interfaces/roomingList";
+import { executeFetch } from "@/utils/executeFetch";
 
 
 const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate, roomingListBookings, roomingListId} : RoomingListItem) => {
@@ -13,10 +14,10 @@ const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate,
         console.log("Fetching bookings for Rooming List ID:", roomingListId);
 
         try {
-            const response = await fetch(`http://localhost:3002/rooming-list-booking/${roomingListId}`);
-            if (!response.ok) throw new Error("Failed to fetch bookings");
+            const response = await executeFetch(`/rooming-list-booking/${roomingListId}`, 'GET');
+            if (!response) throw new Error("Failed to fetch bookings");
 
-            const data = await response.json();
+            const data = response;
             console.log("=====================");
             console.log("Fetched Bookings for Rooming List ID:", roomingListId);
             console.log("Data:", data);

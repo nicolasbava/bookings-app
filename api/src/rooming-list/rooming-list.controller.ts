@@ -27,6 +27,7 @@ export class RoomingListController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async createRoomingLists(
     @Body() roomingLists: RoomingList[],

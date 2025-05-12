@@ -34,11 +34,14 @@ const ButtonUploadJson = () => {
         }
     };
 
-    const uploadJson = async (url: string, method: string = 'POST', jsonData?: unknown) => {
+    const executeFetch = async (url: string, method: string = 'POST', jsonData?: unknown) => {
         try {
             const response = await fetch(url, {
                 method,
-                headers: { "Content-Type": "application/json" },
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_JWT_TOKEN}`
+                },
                 body: jsonData ? JSON.stringify(jsonData) : undefined,
             });
 
@@ -58,7 +61,7 @@ const ButtonUploadJson = () => {
             console.log("Cleaning database...");
 
             try {
-                await uploadJson("http://localhost:3001/rooming-list-booking/delete-all", 'DELETE');
+                await executeFetch("http://localhost:3001/rooming-list-booking/delete-all", 'DELETE');
                 console.log("Database cleaned ✅");
             } catch (error) {
                 console.error('Error deleting:', error);
@@ -80,21 +83,21 @@ const ButtonUploadJson = () => {
             }
 
             console.log("Uploading Bookings...");
-            await uploadJson("http://localhost:3001/booking", 'POST', bookingJson);
+            await executeFetch("http://localhost:3001/booking", 'POST', bookingJson);
             console.log("Bookings uploaded ✅");
 
             console.log("Uploading Rooming Lists...");
-            await uploadJson("http://localhost:3001/rooming-lists", "POST", roomingListsJson);
+            await executeFetch("http://localhost:3001/rooming-lists", "POST", roomingListsJson);
             console.log("Rooming Lists uploaded ✅");
 
             console.log("Uploading Rooming List Bookings...");
-            await uploadJson("http://localhost:3001/rooming-list-booking", "POST", roomingListBookingsJson);
+            await executeFetch("http://localhost:3001/rooming-list-booking", "POST", roomingListBookingsJson);
             console.log("Rooming List Bookings uploaded ✅");
 
-            triggerRefresh();
-
+            
             alert("All files uploaded successfully!");
             setOpen(false);
+            triggerRefresh();
         } catch (error) {
             console.error('Error uploading:', error);
             alert("Upload failed! Check console for details.");
@@ -154,7 +157,6 @@ const ButtonUploadJson = () => {
                 </DialogContent>
                 <DialogActions>
                     <Stack direction={'row'} justifyContent={'space-between'} mx={2} mb={2} width={'100%'} >
-
                         <Button disabled={!bookingJson || !roomingListsJson || !roomingListBookingsJson} variant="contained" onClick={handleUpload} sx={{ marginRight: 'auto' }}>Upload</Button>
                         <Button onClick={onClose} color="secondary" variant="outlined">Close</Button>
                     </Stack>

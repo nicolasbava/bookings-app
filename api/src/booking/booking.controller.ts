@@ -7,11 +7,13 @@ import {
 } from '@nestjs/common';
 import { BookingService } from './booking.service';
 import { CreateBookingDto } from './dto/booking';
-
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../auth/jwt.guard';
 @Controller('booking')
 export class BookingController {
   constructor(private readonly bookingService: BookingService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Get()
   findAll() {
     try {
@@ -24,6 +26,7 @@ export class BookingController {
     }
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() bookings: CreateBookingDto[]) {
     try {

@@ -4,11 +4,12 @@ import Header from "@/components/molecules/Header";
 import RoomingList from "@/components/organisms/RoomingList";
 import { getRoomingLists } from "@/services/roomingListService";
 import { Typography } from "@mui/material";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 const RoomingListTemplate = () => {
+  const {shouldRefresh} = useGlobalContext()
   const [roomingLists, setRoomingLists] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,25 +18,27 @@ const RoomingListTemplate = () => {
         setRoomingLists(data);
       } catch (error) {
         console.error("Error fetching rooming list", error);
-        setError("Failed to load rooming lists");
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, []);
+  }, [shouldRefresh]);
 
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
+  // if (loading) return <div>Loading...</div>;
 
   return (
     <>
-      <Header roomingLists={roomingLists} />
-      {roomingLists.length === 0 ? 
-        <Typography mt={4} ml={1}>No booking found  </Typography>  
-        : <RoomingList data={roomingLists} />
+      {loading ? <div>Loading...</div> :  
+        <>
+          <Header roomingLists={roomingLists} />
+          {roomingLists.length === 0 ? 
+            <Typography mt={4} ml={1}>No booking found.</Typography>  
+            : <RoomingList data={roomingLists} />
+          }
+        </>
       }
     </>
   );
