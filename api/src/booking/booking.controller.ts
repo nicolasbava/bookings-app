@@ -1,4 +1,10 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  InternalServerErrorException,
+  Post,
+} from '@nestjs/common';
 import { BookingService } from './booking.service';
 import { CreateBookingDto } from './dto/booking';
 
@@ -8,11 +14,25 @@ export class BookingController {
 
   @Get()
   findAll() {
-    return this.bookingService.findAll();
+    try {
+      return this.bookingService.findAll();
+    } catch (error) {
+      throw new InternalServerErrorException(
+        error,
+        'Failed to fetch rooming lists',
+      );
+    }
   }
 
   @Post()
   async create(@Body() bookings: CreateBookingDto[]) {
-    return this.bookingService.createMultipleBookings(bookings);
+    try {
+      return this.bookingService.createMultipleBookings(bookings);
+    } catch (error) {
+      throw new InternalServerErrorException(
+        error,
+        'Failed to create bookings',
+      );
+    }
   }
 }

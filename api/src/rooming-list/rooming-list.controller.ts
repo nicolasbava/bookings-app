@@ -1,4 +1,10 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  InternalServerErrorException,
+  Post,
+} from '@nestjs/common';
 import { RoomingListService } from './rooming-list.service';
 import { RoomingList } from './entities/rooming-list.entity';
 
@@ -8,13 +14,27 @@ export class RoomingListController {
 
   @Get()
   findAllByEventName() {
-    return this.roomingListService.findAllByEventName();
+    try {
+      return this.roomingListService.findAllByEventName();
+    } catch (error) {
+      throw new InternalServerErrorException(
+        error,
+        'Failed to fetch rooming lists',
+      );
+    }
   }
 
   @Post()
   async createRoomingLists(
     @Body() roomingLists: RoomingList[],
   ): Promise<RoomingList[]> {
-    return this.roomingListService.createRoomingLists(roomingLists);
+    try {
+      return this.roomingListService.createRoomingLists(roomingLists);
+    } catch (error) {
+      throw new InternalServerErrorException(
+        error,
+        'Failed to create rooming lists',
+      );
+    }
   }
 }
