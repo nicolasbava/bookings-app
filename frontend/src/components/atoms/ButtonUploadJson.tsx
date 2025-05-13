@@ -1,4 +1,4 @@
-import { executeFetch } from "@/utils/executeFetch";
+import { executeFetch } from "../../utils/executeFetch";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { BookingType, RoomingListBookingType, RoomingListType } from "../../interfaces/roomingList";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
