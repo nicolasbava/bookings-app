@@ -1,31 +1,31 @@
--- Create the bookings table
+-- Tabla bookings
 CREATE TABLE IF NOT EXISTS bookings (
-    "bookingId" SERIAL PRIMARY KEY,
-    "hotelId" INT NOT NULL,
-    "eventId" INT NOT NULL,
-    "guestName" VARCHAR(255) NOT NULL,
-    "guestPhoneNumber" VARCHAR(20) NOT NULL,
-    "checkInDate" DATE NOT NULL,
-    "checkOutDate" DATE NOT NULL
+    booking_id SERIAL PRIMARY KEY,
+    hotel_id INTEGER NOT NULL,
+    event_id INTEGER NOT NULL,
+    guest_name VARCHAR(255) NOT NULL,
+    guest_phone_number VARCHAR(20) NOT NULL,
+    check_in_date DATE NOT NULL,
+    check_out_date DATE NOT NULL
 );
 
--- Create the rooming lists table
-CREATE TABLE rooming_lists (
-    "roomingListId" SERIAL PRIMARY KEY,
-    "eventId" INT NOT NULL,
-    "eventName" VARCHAR(255) NOT NULL,
-    "hotelId" INT NOT NULL,
-    "rfpName" VARCHAR(255) NOT NULL,
-    "cutOffDate" DATE NOT NULL,
-    "status" VARCHAR(50) CHECK ("status" IN ('Active', 'Closed', 'Cancelled', 'completed', 'received', 'archived', 'Confirmed')),
+-- Tabla rooming_lists
+CREATE TABLE IF NOT EXISTS rooming_lists (
+    rooming_list_id SERIAL PRIMARY KEY,
+    event_id INTEGER NOT NULL,
+    event_name VARCHAR(255) NOT NULL,
+    hotel_id INTEGER NOT NULL,
+    rfp_name VARCHAR(255) NOT NULL,
+    cut_off_date DATE NOT NULL,
+    status VARCHAR(50) CHECK (status IN ('Active', 'Closed', 'Cancelled', 'completed', 'received', 'archived', 'Confirmed')),
     agreement_type VARCHAR(50) CHECK (agreement_type IN ('leisure', 'staff', 'artist'))
 );
 
--- Create the rooming list bookings table
-CREATE TABLE rooming_list_bookings (
-    "roomingListId" INT NOT NULL,
-    "bookingId" INT NOT NULL,
-    PRIMARY KEY ("roomingListId", "bookingId"),
-    FOREIGN KEY ("roomingListId") REFERENCES rooming_lists("roomingListId") ON DELETE CASCADE,
-    FOREIGN KEY ("bookingId") REFERENCES bookings("bookingId") ON DELETE CASCADE
+-- Tabla de relación rooming_list_bookings
+CREATE TABLE IF NOT EXISTS rooming_list_bookings (
+    rooming_list_id INTEGER NOT NULL,
+    booking_id INTEGER NOT NULL,
+    PRIMARY KEY (rooming_list_id, booking_id),
+    FOREIGN KEY (rooming_list_id) REFERENCES rooming_lists(rooming_list_id) ON DELETE CASCADE,
+    FOREIGN KEY (booking_id) REFERENCES bookings(booking_id) ON DELETE CASCADE
 );

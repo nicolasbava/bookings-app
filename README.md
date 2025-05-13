@@ -1,20 +1,17 @@
 
-# Rooming List Bookings APP
+# 🏨 Rooming List Bookings APP
 
-This is a fullstack app to retrieve a collection of bookings sent to a hotel to obtain confirmation for the requested booking.
+This is a fullstack app to retrieve a collection of Bookings sent to a hotel to obtain confirmation for the requested booking.
 Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL as a database and using TypeORM as ORM.
-
-For running this app you must have installed:
-1. Node.js (LTS 20+)
-2. PostgreSQL
-3. Chrome Extension: Allow CORS: Access-Control-Allow-Origin
 
 
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
-- [Installation](#installation)
 - [Usage](#usage)
+- [Installation](#installation)
+- [Routes](#routes)
+- [Tests](#tests)
 
 
 ## Technologies Used
@@ -25,8 +22,70 @@ For running this app you must have installed:
 - [ POSTGRESQL ](https://www.postgresql.org/docs/)
 - [ TYPE ORM ](https://typeorm.io/)
 - [ MATERIAL UI ](https://redis.io/es/)
+- [ DOCKER ](https://docs.docker.com/)
+
+## Usage
+## 🚀 Quick Start (Using Docker)
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) installed.
+
+### Steps
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/nicolasbava/bookings-app
+   cd bookings-app
+
+2. **Start the App with Docker**:
+   docker-compose up --build
+
+3. **Access the App**:
+   Frontend: http://localhost:3000
+   Backend API: http://localhost:3001
+
+4. **Shutdown App**
+   run: "docker-compose down" to shut down the app
+
+
+### JWT Authentication
+
+The backend is protected with JWT authentication. To access protected routes from the frontend, you need a valid token.
+
+#### 1. Generate a Token
+
+You can generate a valid JWT token using [https://jwt.io](https://jwt.io):
+
+1. Go to jwt.io
+2. Add the secret "mysecret"
+3. Add the payload to generate the token:
+   {
+      "sub": "1",
+      "username": "nicolas",
+      "iat": automatic-iat-number-displayed
+   }
+
+   The algorithm I am using is:
+   {
+      "alg": "HS256",
+      "typ": "JWT"
+   }
+
+4. Then add the secret to /frontend/.env.local at NEXT_PUBLIC_JWT_TOKEN
+
+
+### JSON Upload Data
+
+To test with data:
+
+1. Use the "Insert Bookings and Rooming Lists" button in the UI
+2. Upload files from the folder /api/JSONData if available
+
 
 ## Installation
+(for local development)
 
 ### Backend
 1. Create Database: 
@@ -49,7 +108,7 @@ For running this app you must have installed:
 
 4. Init backend app:
    run "npm run start:dev"
-   backend will run on port 3002
+   backend will run on port 3001
 
 ### Frontend
 1. Open console at location: 
@@ -63,7 +122,6 @@ For running this app you must have installed:
    in root of the project run "npm run dev"
    it will run on port 3000
 
-## Usage
 ### Backend
 1. Init backend app:
    run "npm run start:dev"
@@ -75,6 +133,8 @@ For running this app you must have installed:
    run "npm run dev"
 
 2. Open the browser at http://localhost:3000/
+
+3. Load data from the button, which data is in JSON format at /api/JSONData
 
 ## Resources
 
@@ -97,7 +157,7 @@ For running this app you must have installed:
 - {/rooming-list , POST}: Upload multiple Rooming List
 
 - {/rooming-list-booking/:roomingListId , GET}: Get all Bookings associated to a roomingListId
-- {/rooming-list-booking , POST}: Upload multiple Rooming List Bookings
+- {/rooming-list-booking/, POST}: Upload multiple Rooming List Bookings
 - {/rooming-list-booking/delete-all , DELETE}: Deletes all the data of that table and associated data, so it deletes the data from the 3 tables
 
 
@@ -107,3 +167,4 @@ For running this app you must have installed:
 1. Integration Tests: 
    step into root/api
    run "npm run test:e2e"
+

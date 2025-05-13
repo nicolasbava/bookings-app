@@ -81,7 +81,6 @@ export class RoomingListBookingService {
     await this.roomingListBookingRepository.query(`
       TRUNCATE TABLE rooming_list_bookings, bookings, rooming_lists CASCADE;
     `);
-
     return { message: 'All bookings have been deleted' };
   }
 }

@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import { Button } from "@mui/material";
+import StyledButton from "./StyledButton";
 
 interface FilterButtonProps {
     open: boolean,
@@ -9,25 +8,7 @@ interface FilterButtonProps {
 const FilterButton = ({open, setOpen} : FilterButtonProps) => {
     return (
         <>
-            <Button 
-                variant={'outlined'} 
-                onClick={() => setOpen(!open)}
-                sx={{
-                    background: 'white', 
-                    color: 'black', 
-                    fontSize: '14px', 
-                    fontWeight: 500,
-                    textTransform: 'capitalize', 
-                    border: `1px solid ${open ? '#4323FF' : '#E4ECF2'}`, 
-                    borderRadius: '8px', 
-                    padding: '11px 18px',
-                    paddingRight: '22px',
-                }}
-                endIcon={
-                    <img style={{maxWidth: '16px'}} src="/tunes-icon.png" alt="Filter Icon" />
-                }>
-                    Filters
-            </Button>
+            <StyledButton borderStyle={true}  text={'Filter'}  value={open} onClick={setOpen} endIconImg={"/tunes-icon.png"} />
         </>
     )
 };

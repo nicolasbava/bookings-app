@@ -1,9 +1,9 @@
-import theme from "@/app/theme";
+import theme from "../../../app/theme";
 import { FormGroup, Stack, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import CheckboxStyled from "./CheckboxStyled";
 import ButtonBlue from "../ButtonBlue";
-import { useGlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "../../../context/GlobalContext";
 
 interface FilterListProps {
     open: boolean,

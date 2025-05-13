@@ -1,16 +1,17 @@
+'use client'
 import { Box, Stack, Typography } from "@mui/material";
 import TitleDivider from "../atoms/RoomingListCard/TitleDivider";
 import CustomScrollbar from "../atoms/RoomingListCard/ScrollBarContainer";
 import RoomingListCard from "../molecules/RoomingListCard";
-import { RoomingListFetch } from "@/interfaces/roomingList";
-import { useGlobalContext } from "@/context/GlobalContext";
+import { RoomingListFetch } from "../../interfaces/roomingList";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 type RoomingListProps = {
     data: RoomingListFetch[];
 };
 
 const RoomingList = ({ data }: RoomingListProps) => {
-    const { selectedFilters } = useGlobalContext(); // Access selected filters
+    const { selectedFilters, orderAscendent } = useGlobalContext(); // Access selected filters
 
     const STATUS_TRANSLATIONS: Record<string, string> = {
         Active: "received",
@@ -18,6 +19,7 @@ const RoomingList = ({ data }: RoomingListProps) => {
         Canceled: "archived",
     };
     const translatedFilters = selectedFilters.map(filter => STATUS_TRANSLATIONS[filter] || filter);
+
 
     return (
         <>
@@ -27,13 +29,19 @@ const RoomingList = ({ data }: RoomingListProps) => {
                         translatedFilters.length > 0 ? translatedFilters.includes(room.status) : true
                     );
 
+                    const sortedRooms = [...filteredRooms].sort((a, b) => {
+                    const dateA = new Date(a.cutOffDate).getTime();
+                    const dateB = new Date(b.cutOffDate).getTime();
+                    return orderAscendent ? dateA - dateB : dateB - dateA;
+                    });
+
                     return (
                         <Box key={index}>
                             <TitleDivider title={eventData.eventName} index={index} />
-                            {filteredRooms.length === 0 ?  <Typography fontWeight={'bold'} mt={2}>No bookings found</Typography> : 
+                            {sortedRooms.length === 0 ?  <Typography fontWeight={'bold'} mt={2}>No bookings found</Typography> : 
                                 <CustomScrollbar>
                                     <Stack direction={"row"} spacing={2} mt={2}>
-                                        {filteredRooms?.map((room, roomIndex) => (
+                                        {sortedRooms?.map((room, roomIndex) => (
                                             <RoomingListCard key={roomIndex} {...room} />
                                         ))}
                                     </Stack>

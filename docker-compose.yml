@@ -1,0 +1,53 @@
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: db-bookings
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"  # Expone el puerto 5433 en el host para evitar conflictos con otros servicios en el puerto 5432.
+    networks:
+      - mynetwork
+
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: db-bookings
+    depends_on:
+      - db
+    ports:
+      - "3001:3001"  # Cambia según el puerto que uses en NestJS
+    networks:
+      - mynetwork 
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - BACKEND_URL=http://backend:3001
+    depends_on:
+      - backend
+    networks:
+      - mynetwork
+
+volumes:
+  pgdata:
+    driver: local
+
+networks:
+  mynetwork:  # Crear una red común para los contenedores
+    driver: bridge

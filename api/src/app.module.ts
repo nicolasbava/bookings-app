@@ -9,26 +9,32 @@ import { RoomingListBookingModule } from './rooming-list-booking/rooming-list-bo
 import { RoomingList } from './rooming-list/entities/rooming-list.entity';
 import { Booking } from './booking/entities/booking.entity';
 import { RoomingListBooking } from './rooming-list-booking/entities/rooming-list-booking.entity';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './auth/jwt.strategy';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DATABASE_HOST,
+      host: process.env.DATABASE_HOST || 'db',
       port: 5432,
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      autoLoadEntities: true, // Automatically load entities
-      synchronize: true, // Auto-sync DB schema (disable in production)
+      autoLoadEntities: true,
+      synchronize: true,
       entities: [RoomingList, Booking, RoomingListBooking],
     }),
     RoomingListModule,
     BookingModule,
     RoomingListBookingModule,
+    JwtModule.register({
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: '1d' },
+    }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, JwtStrategy],
 })
 export class AppModule {}
