@@ -49,7 +49,8 @@ Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL 
 4. **Shutdown App**
    run: "docker-compose down" to shut down the app
 
-### 🔐 JWT Authentication
+
+### JWT Authentication
 
 The backend is protected with JWT authentication. To access protected routes from the frontend, you need a valid token.
 
@@ -73,6 +74,14 @@ You can generate a valid JWT token using [https://jwt.io](https://jwt.io):
    }
 
 4. Then add the secret to /frontend/.env.local at NEXT_PUBLIC_JWT_TOKEN
+
+
+### JSON Upload Data
+
+To test with data:
+
+1. Use the "Insert Bookings and Rooming Lists" button in the UI
+2. Upload files from the folder /api/JSONData if available
 
 
 ## Installation
