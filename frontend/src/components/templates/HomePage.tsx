@@ -3,15 +3,16 @@ import { useEffect, useState } from "react";
 import Header from "../molecules/Header";
 import RoomingList from "../organisms/RoomingList";
 import { getRoomingLists } from "../../services/roomingListService";
-import { Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { useGlobalContext } from "../../context/GlobalContext";
 
 const RoomingListTemplate = () => {
   const {shouldRefresh} = useGlobalContext()
   const [roomingLists, setRoomingLists] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         const data = await getRoomingLists();
@@ -21,17 +22,16 @@ const RoomingListTemplate = () => {
       } finally {
         setLoading(false);
       }
-    };
+    };    
 
     fetchData();
+
   }, [shouldRefresh]);
 
 
-  // if (loading) return <div>Loading...</div>;
-
   return (
     <>
-      {loading ? <div>Loading...</div> :  
+      {loading ? <Stack>Loading...</Stack> :  
         <>
           <Header roomingLists={roomingLists} />
           {roomingLists.length === 0 ? 

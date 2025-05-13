@@ -17,6 +17,18 @@ export class BookingService {
     });
   }
 
+  async findAllPaged(
+    limit = 10,
+    offset = 0,
+    order: 'ASC' | 'DESC' = 'ASC',
+  ): Promise<[Booking[], number]> {
+    return this.bookingRepository.findAndCount({
+      skip: offset,
+      take: limit,
+      order: { checkOutDate: order },
+    });
+  }
+
   async createMultipleBookings(
     bookings: CreateBookingDto[],
   ): Promise<Booking[]> {

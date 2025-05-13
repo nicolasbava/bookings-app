@@ -18,6 +18,29 @@ export class RoomingListService {
     return this.groupByEventNameAndCalcDate(roomingLists);
   }
 
+  async findAllPaged(
+    limit = 3,
+    offset = 0,
+    order: 'ASC' | 'DESC' = 'ASC',
+  ): Promise<{ total: number; grouped: any[] }> {
+    const queryBuilder = this.roomingListRepository
+      .createQueryBuilder('rooming_lists')
+      .leftJoinAndSelect(
+        'rooming_lists.roomingListBookings',
+        'roomingListBookings',
+      )
+      .leftJoinAndSelect('roomingListBookings.booking', 'bookings')
+      .orderBy('rooming_lists.cutOffDate', order)
+      .skip(offset)
+      .take(limit);
+
+    const [roomingLists, total] = await queryBuilder.getManyAndCount();
+
+    const grouped = this.groupByEventNameAndCalcDate(roomingLists);
+
+    return { total, grouped };
+  }
+
   async findAllByEventName() {
     const roomingLists = await this.roomingListRepository
       .createQueryBuilder('rooming_list')
