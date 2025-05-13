@@ -22,15 +22,15 @@ import { JwtStrategy } from './auth/jwt.strategy';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
-      autoLoadEntities: true, // Automatically load entities
-      synchronize: true, // Auto-sync DB schema (disable in production)
+      autoLoadEntities: true,
+      synchronize: true,
       entities: [RoomingList, Booking, RoomingListBooking],
     }),
     RoomingListModule,
     BookingModule,
     RoomingListBookingModule,
     JwtModule.register({
-      secret: 'mysecret',
+      secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: '1d' },
     }),
   ],

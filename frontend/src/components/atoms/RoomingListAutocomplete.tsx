@@ -10,12 +10,12 @@ interface RoomingListAutocompleteProps extends Partial<AutocompleteProps<any, an
 const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocompleteProps) => {
     const [searchValue, setSearchValue] = useState("");
 
-    // Transform data into a searchable format
     const options = extractedDataState?.map((item, index) => ({
         id: `${item.rfpName}-${item.agreement_type}-${index}`,
-        key: `${item.rfpName}-${item.agreement_type}-${index}`,
-        label: `${item.rfpName} (${item.agreement_type})`, // Display both fields
-        value: item.rfpName, // Use `rfpName` as the main identifier
+        key: `${item.eventName}, ${item.rfpName}-${item.agreement_type}`,
+        label: `${index}) ${item.eventName},  ${item.rfpName} (${item.agreement_type})`,
+        value: item.rfpName,
+        eventName: item.eventName,
         agreement_type: item.agreement_type
     })) ?? [];
 
@@ -24,14 +24,15 @@ const RoomingListAutocomplete = ({ extractedDataState } : RoomingListAutocomplet
             disablePortal
             options={options.filter(option =>
                 option.value.toLowerCase().includes(searchValue.toLowerCase()) ||
-                option.agreement_type.toLowerCase().includes(searchValue.toLowerCase())
+                option.agreement_type.toLowerCase().includes(searchValue.toLowerCase()) ||
+                option.eventName.toLowerCase().includes(searchValue.toLowerCase())
             )}
             getOptionLabel={(option) => option.label}
             sx={{ 
                 '.MuiAutocomplete-root .MuiOutlinedInput-root.MuiInputBase-sizeSmall':{
                     padding: '4px'
                 },
-                width: {xs: '100%', md: 300}    
+                width: {xs: '100%', md: 400}    
             }}
             size={'small'}
             isOptionEqualToValue={(option, value) => option.id === value.id}

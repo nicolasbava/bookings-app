@@ -76,6 +76,8 @@ For running this app you must have installed:
 
 2. Open the browser at http://localhost:3000/
 
+3. Load data from the button, which data is in JSON format at /api/JSONData
+
 ## Resources
 
 - Principles of atomic design: https://medium.com/galaxy-ux-studio/principles-of-atomic-design-7b03a30c3cb6
@@ -107,3 +109,4 @@ For running this app you must have installed:
 1. Integration Tests: 
    step into root/api
    run "npm run test:e2e"
+
