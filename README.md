@@ -8,9 +8,10 @@ Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL 
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
-- [Quick Start](#quick-start)
-- [Installation](#installation)
 - [Usage](#usage)
+- [Installation](#installation)
+- [Routes](#routes)
+- [Tests](#tests)
 
 
 ## Technologies Used
@@ -23,7 +24,7 @@ Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL 
 - [ MATERIAL UI ](https://redis.io/es/)
 - [ DOCKER ](https://docs.docker.com/)
 
-
+## Usage
 ## 🚀 Quick Start (Using Docker)
 
 ### Prerequisites
@@ -48,11 +49,11 @@ Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL 
 4. **Shutdown App**
    run: "docker-compose down" to shut down the app
 
-## 🔐 JWT Authentication
+### 🔐 JWT Authentication
 
 The backend is protected with JWT authentication. To access protected routes from the frontend, you need a valid token.
 
-### 1. Generate a Token
+#### 1. Generate a Token
 
 You can generate a valid JWT token using [https://jwt.io](https://jwt.io):
 
@@ -62,7 +63,7 @@ You can generate a valid JWT token using [https://jwt.io](https://jwt.io):
    {
       "sub": "1",
       "username": "nicolas",
-      "iat": <iat-number>
+      "iat": automatic-iat-number-displayed
    }
 
    The algorithm I am using is:
@@ -74,7 +75,8 @@ You can generate a valid JWT token using [https://jwt.io](https://jwt.io):
 4. Then add the secret to /frontend/.env.local at NEXT_PUBLIC_JWT_TOKEN
 
 
-## Installation (for local development)
+## Installation
+(for local development)
 
 ### Backend
 1. Create Database: 
@@ -111,7 +113,6 @@ You can generate a valid JWT token using [https://jwt.io](https://jwt.io):
    in root of the project run "npm run dev"
    it will run on port 3000
 
-## Usage
 ### Backend
 1. Init backend app:
    run "npm run start:dev"
