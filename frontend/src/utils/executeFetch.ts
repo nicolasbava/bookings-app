@@ -20,7 +20,9 @@ export const executeFetch = async <T = unknown>(
       throw new Error(`Failed to fetch ${url}: ${response.statusText}`);
     }
 
-    const data = await response.json();
+    // const data = await response.json();
+    const text = await response.text();
+    const data = text ? JSON.parse(text) : null;
     return data as T;
   } catch (error) {
     console.error(`Fetch error for ${url}:`, error);

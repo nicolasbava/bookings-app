@@ -5,7 +5,7 @@ This is a fullstack app to retrieve a collection of bookings sent to a hotel to 
 Is made with Nextjs in the frontend an Nestjs for the backend. Using PostgreSQL as a database and using TypeORM as ORM.
 
 For running this app you must have installed:
-1. Node.js (LTS 20+)
+1. Node.js (LTS 20.11+)
 2. PostgreSQL
 3. Chrome Extension: Allow CORS: Access-Control-Allow-Origin
 
@@ -25,6 +25,7 @@ For running this app you must have installed:
 - [ POSTGRESQL ](https://www.postgresql.org/docs/)
 - [ TYPE ORM ](https://typeorm.io/)
 - [ MATERIAL UI ](https://redis.io/es/)
+- [ DOCKER ](https://docs.docker.com/)
 
 ## Installation
 

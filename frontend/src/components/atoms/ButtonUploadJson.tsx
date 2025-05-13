@@ -1,3 +1,4 @@
+import { executeFetch } from "@/utils/executeFetch";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { BookingType, RoomingListBookingType, RoomingListType } from "../../interfaces/roomingList";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
@@ -35,34 +36,12 @@ const ButtonUploadJson = () => {
         }
     };
 
-    const executeFetch = async (url: string, method: string = 'POST', jsonData?: unknown) => {
-        try {
-            const response = await fetch(url, {
-                method,
-                headers: { 
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_JWT_TOKEN}`
-                },
-                body: jsonData ? JSON.stringify(jsonData) : undefined,
-            });
-
-            if (!response.ok) {
-                throw new Error(`Failed to upload ${url}: ${response.statusText}`);
-            }
-
-            return response;
-        } catch (error) {
-            console.error("Upload error:", error);
-            throw error;
-        }
-    };
-
     const handleDeleteAllData = async () => {
         try {
             console.log("Cleaning database...");
 
             try {
-                await executeFetch("http://localhost:3001/rooming-list-booking/delete-all", 'DELETE');
+                await executeFetch("/rooming-list-booking/delete-all", 'DELETE');
                 toast.success('Database cleaned')
                 triggerRefresh();
 
@@ -88,15 +67,15 @@ const ButtonUploadJson = () => {
             }
 
             console.log("Uploading Bookings...");
-            await executeFetch("http://localhost:3001/booking", 'POST', bookingJson);
+            await executeFetch("/booking", 'POST', bookingJson);
             console.log("Bookings uploaded ✅");
 
             console.log("Uploading Rooming Lists...");
-            await executeFetch("http://localhost:3001/rooming-lists", "POST", roomingListsJson);
+            await executeFetch("/rooming-lists", "POST", roomingListsJson);
             console.log("Rooming Lists uploaded ✅");
 
             console.log("Uploading Rooming List Bookings...");
-            await executeFetch("http://localhost:3001/rooming-list-booking", "POST", roomingListBookingsJson);
+            await executeFetch("/rooming-list-booking", "POST", roomingListBookingsJson);
             console.log("Rooming List Bookings uploaded ✅");
 
             
