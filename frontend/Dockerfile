@@ -3,8 +3,10 @@ FROM node:20.11.1-slim
 
 WORKDIR /app
 
-# Copia y instala solo dependencias necesarias
-COPY package*.json ./
+# Copia los archivos necesarios para instalar dependencias
+COPY package.json package-lock.json ./
+
+# Instala solo dependencias necesarias para producción
 RUN npm ci --omit=dev && npm cache clean --force
 
 # Copia el resto del código

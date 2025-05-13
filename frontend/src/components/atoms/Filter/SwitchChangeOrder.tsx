@@ -1,4 +1,4 @@
-import { useGlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "../../../context/GlobalContext";
 import { Tooltip } from "@mui/material"
 import StyledButton from "./StyledButton";
 

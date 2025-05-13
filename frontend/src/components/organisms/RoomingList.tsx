@@ -3,8 +3,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import TitleDivider from "../atoms/RoomingListCard/TitleDivider";
 import CustomScrollbar from "../atoms/RoomingListCard/ScrollBarContainer";
 import RoomingListCard from "../molecules/RoomingListCard";
-import { RoomingListFetch } from "@/interfaces/roomingList";
-import { useGlobalContext } from "@/context/GlobalContext";
+import { RoomingListFetch } from "../../interfaces/roomingList";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 type RoomingListProps = {
     data: RoomingListFetch[];

@@ -1,5 +1,5 @@
-import { useGlobalContext } from "@/context/GlobalContext";
-import { BookingType, RoomingListBookingType, RoomingListType } from "@/interfaces/roomingList";
+import { useGlobalContext } from "../../context/GlobalContext";
+import { BookingType, RoomingListBookingType, RoomingListType } from "../../interfaces/roomingList";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Stack } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
 import { toast } from "react-toastify";
@@ -139,7 +139,7 @@ const ButtonUploadJson = () => {
             </Button>
 
             <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
-                <DialogTitle>Insert Bookings and Rooming Lists</DialogTitle>
+                <DialogTitle>Insert Data</DialogTitle>
                 <DialogContent>
                     <Stack spacing={2}>
 

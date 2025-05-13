@@ -5,7 +5,7 @@ import SearchInput from "../atoms/SearchInput";
 import FilterButton from "../atoms/Filter/FilterButton";
 import { useState } from "react";
 import FilterBox from "../atoms/Filter/FilterList";
-import { RoomingListFetch } from "@/interfaces/roomingList";
+import { RoomingListFetch } from "../../interfaces/roomingList";
 import SwitchChangeOrder from "../atoms/Filter/SwitchChangeOrder";
 import ButtonUploadJson from "../atoms/ButtonUploadJson";
 

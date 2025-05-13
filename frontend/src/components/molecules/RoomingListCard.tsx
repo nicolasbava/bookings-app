@@ -5,8 +5,8 @@ import CalendarCard from "../atoms/RoomingListCard/CalendarCard";
 import DateRangeCard from "../atoms/RoomingListCard/DateRangeCard";
 import ButtonBlue from "../atoms/ButtonBlue";
 import OpenDocIcon from "../atoms/RoomingListCard/OpenDocIcon";
-import { RoomingListItem } from "@/interfaces/roomingList";
-import { executeFetch } from "@/utils/executeFetch";
+import { RoomingListItem } from "../../interfaces/roomingList";
+import { executeFetch } from "../../utils/executeFetch";
 
 
 const RoomingListCard = ({rfpName, agreement_type, cutOffDate, minDate, maxDate, roomingListBookings, roomingListId} : RoomingListItem) => {

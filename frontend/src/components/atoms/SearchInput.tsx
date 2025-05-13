@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import { RoomingListFetch, RoomingListItem } from "@/interfaces/roomingList";
+import { RoomingListFetch, RoomingListItem } from "../../interfaces/roomingList";
 import { useEffect, useState } from "react";
 import RoomingListAutocomplete from "./RoomingListAutocomplete";
 

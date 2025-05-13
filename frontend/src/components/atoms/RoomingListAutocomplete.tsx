@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { Autocomplete, TextField, InputAdornment, AutocompleteProps } from "@mui/material";
-import { RoomingListItem } from "@/interfaces/roomingList";
+import { RoomingListItem } from "../../interfaces/roomingList";
 
 interface RoomingListAutocompleteProps extends Partial<AutocompleteProps<any, any, any, any>> {
     extractedDataState: RoomingListItem[];

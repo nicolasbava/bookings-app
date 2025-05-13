@@ -1,11 +1,3 @@
-# FROM node:20.11.1-bullseye
-
-# WORKDIR /app
-# COPY package*.json ./
-# RUN npm install
-# COPY . .
-# CMD ["npm", "run", "start:dev"]
-
 # backend/Dockerfile
 FROM node:20.11.1-slim
 

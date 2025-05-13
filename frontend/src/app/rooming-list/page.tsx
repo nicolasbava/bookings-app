@@ -1,4 +1,4 @@
-import RoomingListTemplate from "@/components/templates/HomePage";
+import RoomingListTemplate from "../../components/templates/HomePage";
 
 const RoomingListPage = () => {
 

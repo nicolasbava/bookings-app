@@ -1,10 +1,10 @@
 'use client'
 import { useEffect, useState } from "react";
-import Header from "@/components/molecules/Header";
-import RoomingList from "@/components/organisms/RoomingList";
-import { getRoomingLists } from "@/services/roomingListService";
+import Header from "../molecules/Header";
+import RoomingList from "../organisms/RoomingList";
+import { getRoomingLists } from "../../services/roomingListService";
 import { Typography } from "@mui/material";
-import { useGlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 const RoomingListTemplate = () => {
   const {shouldRefresh} = useGlobalContext()
